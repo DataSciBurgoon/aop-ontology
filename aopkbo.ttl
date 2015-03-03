@@ -1,0 +1,130 @@
+# baseURI: http://aopkb.org/aopkbo
+
+@prefix aop:     <http://aopkb.org/aopkbo#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix owl1:    <http://purl.org/obo/owl/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+<http://aopkb.org/aopkbo>
+      rdf:type owl:Ontology ;
+      owl:versionInfo "Created with TopBraid Composer"^^xsd:string .
+
+aop:AOPComponent
+      rdf:type owl:Class ;
+      rdfs:label "AOPComponent"^^xsd:string ;
+      rdfs:subClassOf
+              [ rdf:type owl:Restriction ;
+                owl:onProperty aop:component_of ;
+                owl:someValuesFrom aop:AdverseOutcomePathway
+              ] .
+
+aop:AOPComponent_Event
+      rdf:type owl:Class ;
+      rdfs:subClassOf aop:AOPComponent .
+
+aop:AOPComponent_Relationship
+      rdf:type owl:Class ;
+      rdfs:subClassOf aop:AOPComponent .
+
+aop:AdverseOutcomePathway
+      rdf:type owl:Class ;
+      rdfs:label "Adverse Outcome Pathway"^^xsd:string .
+
+aop:ChemicalInitiator
+      rdf:type owl:Class ;
+      rdfs:label "Chemical Initiator"^^xsd:string .
+
+aop:Event
+      rdf:type owl:Class ;
+      rdfs:label "Event"^^xsd:string ;
+      rdfs:subClassOf
+              [ rdf:type owl:Restriction ;
+                owl:onProperty aop:has_role ;
+                owl:someValuesFrom aop:AOPComponent
+              ] .
+
+aop:Event_Relationship
+      rdf:type owl:Class ;
+      rdfs:label "KE Relationship"^^xsd:string ;
+      rdfs:subClassOf
+              [ rdf:type owl:Restriction ;
+                owl:onProperty aop:has_role ;
+                owl:someValuesFrom aop:AOPComponent
+              ] .
+
+aop:component_of
+      rdf:type rdf:Property ;
+      rdfs:label "is component of"^^xsd:string .
+
+aop:has_cause_node
+      rdf:type owl:ObjectProperty ;
+      rdfs:domain aop:Event_Relationship ;
+      rdfs:label "has cause node"^^xsd:string ;
+      rdfs:range aop:Event .
+
+aop:has_component
+      rdf:type rdf:Property ;
+      rdfs:label "has component"^^xsd:string .
+
+aop:has_effect_node
+      rdf:type owl:ObjectProperty ;
+      rdfs:domain aop:Event_Relationship ;
+      rdfs:label "has effect node"^^xsd:string ;
+      rdfs:range aop:Event .
+
+aop:has_event_type
+      rdf:type owl:DatatypeProperty ;
+      rdfs:domain aop:AOPComponent_Event ;
+      rdfs:label "is MIE"^^xsd:string ;
+      rdfs:range xsd:string ;
+      rdfs:subPropertyOf aop:has_type .
+
+aop:has_quantitative_understanding
+      rdf:type owl:DatatypeProperty ;
+      rdfs:domain aop:AOPComponent_Relationship ;
+      rdfs:range xsd:string .
+
+aop:has_relationship_type
+      rdf:type owl:DatatypeProperty ;
+      rdfs:domain aop:AOPComponent_Relationship ;
+      rdfs:range xsd:string ;
+      rdfs:subPropertyOf aop:has_type .
+
+aop:has_role
+      rdf:type owl:ObjectProperty ;
+      rdfs:label "has role"^^xsd:string ;
+      owl:inverseOf aop:role_of .
+
+aop:has_support_for_essentiality
+      rdf:type owl:DatatypeProperty ;
+      rdfs:domain aop:AOPComponent_Event .
+
+aop:has_type
+      rdf:type owl:DatatypeProperty ;
+      rdfs:domain aop:AOPComponent ;
+      rdfs:range xsd:string .
+
+aop:has_weight_of_evidence
+      rdf:type owl:DatatypeProperty ;
+      rdfs:domain aop:AOPComponent_Relationship ;
+      rdfs:label "has weight of evidence"^^xsd:string ;
+      rdfs:range xsd:string .
+
+aop:is_perturbed_by
+      rdf:type owl:ObjectProperty ;
+      rdfs:domain aop:Event ;
+      rdfs:label "is initiated by"^^xsd:string ;
+      rdfs:range aop:ChemicalInitiator ;
+      owl:inverseOf aop:perturbs .
+
+aop:perturbs
+      rdf:type owl:ObjectProperty ;
+      rdfs:domain aop:ChemicalInitiator ;
+      rdfs:label "initiates"^^xsd:string ;
+      rdfs:range aop:Event .
+
+aop:role_of
+      rdf:type owl:ObjectProperty ;
+      rdfs:label "role of"^^xsd:string .
