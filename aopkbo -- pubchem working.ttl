@@ -9,7 +9,8 @@
 
 <http://aopkb.org/aop_ontology> rdf:type owl:Ontology ;
                                 
-                                owl:imports <ftp://ftp.ebi.ac.uk/pub/databases/chebi/ontology/chebi.owl> .
+                                owl:imports <ftp://ftp.ebi.ac.uk/pub/databases/chebi/ontology/chebi.owl> ,
+                                            <http://www.bioassayontology.org/bao/bao_core.owl> .
 
 
 #################################################################
@@ -31,6 +32,12 @@
 
 
 
+###  http://aopkb.org/aop_ontology#UniProtID
+
+:UniProtID rdf:type owl:AnnotationProperty .
+
+
+
 ###  http://purl.org/dc/elements/1.1/title
 
 dc:title rdf:type owl:AnnotationProperty .
@@ -46,11 +53,30 @@ dc:title rdf:type owl:AnnotationProperty .
 #################################################################
 
 
+###  http://aopkb.org/aop_ontology#has_activated_key_event
+
+:has_activated_key_event rdf:type owl:ObjectProperty ;
+                         
+                         rdfs:subPropertyOf :has_key_event .
+
+
+
 ###  http://aopkb.org/aop_ontology#has_adverse_outcome
 
 :has_adverse_outcome rdf:type owl:ObjectProperty ;
                      
-                     rdfs:subPropertyOf <http://aopkb.org/aop_ontology#'has_key_event> .
+                     rdfs:subPropertyOf :has_key_event .
+
+
+
+###  http://aopkb.org/aop_ontology#has_algorithm
+
+:has_algorithm rdf:type owl:ObjectProperty ;
+               
+               rdfs:range [ rdf:type owl:Restriction ;
+                            owl:onProperty :has_algorithm ;
+                            owl:someValuesFrom :BioAssayCallAlgorithm
+                          ] .
 
 
 
@@ -60,19 +86,48 @@ dc:title rdf:type owl:AnnotationProperty .
 
 
 
+###  http://aopkb.org/aop_ontology#has_base_uri
+
+:has_base_uri rdf:type owl:ObjectProperty .
+
+
+
+###  http://aopkb.org/aop_ontology#has_bioassay
+
+:has_bioassay rdf:type owl:ObjectProperty ;
+              
+              rdfs:range [ rdf:type owl:Restriction ;
+                           owl:onProperty :has_bioassay ;
+                           owl:someValuesFrom <http://www.bioassayontology.org/bao#BAO_0000015>
+                         ] .
+
+
+
+###  http://aopkb.org/aop_ontology#has_bioassay_call_algorithm
+
+:has_bioassay_call_algorithm rdf:type owl:ObjectProperty .
+
+
+
+###  http://aopkb.org/aop_ontology#has_chem_bio_assay_call
+
+:has_chem_bio_assay_call rdf:type owl:ObjectProperty .
+
+
+
 ###  http://aopkb.org/aop_ontology#has_chemical_entity
 
 :has_chemical_entity rdf:type owl:ObjectProperty ;
                      
+                     rdfs:domain [ rdf:type owl:Restriction ;
+                                   owl:onProperty :has_chemical_entity ;
+                                   owl:someValuesFrom :ChemBioAssayCall
+                                 ] ;
+                     
                      rdfs:range [ rdf:type owl:Restriction ;
                                   owl:onProperty :has_chemical_entity ;
                                   owl:someValuesFrom <http://purl.obolibrary.org/obo/CHEBI_24431>
-                                ] ;
-                     
-                     rdfs:domain [ rdf:type owl:Restriction ;
-                                   owl:onProperty :has_chemical_entity ;
-                                   owl:someValuesFrom :ChemicalQualitativeData
-                                 ] .
+                                ] .
 
 
 
@@ -91,8 +146,32 @@ dc:title rdf:type owl:AnnotationProperty .
                             ] ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty :has_confidence ;
-                              owl:someValuesFrom :ChemicalQualitativeData
+                              owl:someValuesFrom :ChemBioAssayCall
                             ] .
+
+
+
+###  http://aopkb.org/aop_ontology#has_downstream_key_event
+
+:has_downstream_key_event rdf:type owl:ObjectProperty ;
+                          
+                          rdfs:subPropertyOf :has_key_event_relationship ;
+                          
+                          owl:propertyDisjointWith :has_upstream_key_event .
+
+
+
+###  http://aopkb.org/aop_ontology#has_evidence
+
+:has_evidence rdf:type owl:ObjectProperty .
+
+
+
+###  http://aopkb.org/aop_ontology#has_inactivated_key_event
+
+:has_inactivated_key_event rdf:type owl:ObjectProperty ;
+                           
+                           rdfs:subPropertyOf :has_key_event .
 
 
 
@@ -102,11 +181,36 @@ dc:title rdf:type owl:AnnotationProperty .
 
 
 
+###  http://aopkb.org/aop_ontology#has_key_event
+
+:has_key_event rdf:type owl:ObjectProperty ;
+               
+               rdfs:range :KeyEvent .
+
+
+
+###  http://aopkb.org/aop_ontology#has_key_event_relationship
+
+:has_key_event_relationship rdf:type owl:ObjectProperty ;
+                            
+                            rdfs:range [ rdf:type owl:Restriction ;
+                                         owl:onProperty :has_key_event_relationship ;
+                                         owl:someValuesFrom :KeyEvent
+                                       ] .
+
+
+
+###  http://aopkb.org/aop_ontology#has_key_event_type
+
+:has_key_event_type rdf:type owl:ObjectProperty .
+
+
+
 ###  http://aopkb.org/aop_ontology#has_molecular_initiating_event
 
 :has_molecular_initiating_event rdf:type owl:ObjectProperty ;
                                 
-                                rdfs:subPropertyOf <http://aopkb.org/aop_ontology#'has_key_event> .
+                                rdfs:subPropertyOf :has_key_event .
 
 
 
@@ -123,11 +227,6 @@ dc:title rdf:type owl:AnnotationProperty .
 :has_pubchem_assay rdf:type owl:ObjectProperty ;
                    
                    rdfs:subPropertyOf :has_pubchem_entity ;
-                   
-                   rdfs:range [ rdf:type owl:Restriction ;
-                                owl:onProperty :has_pubchem_assay ;
-                                owl:someValuesFrom :Assay
-                              ] ;
                    
                    rdfs:domain [ rdf:type owl:Restriction ;
                                  owl:onProperty :has_pubchem_assay ;
@@ -172,17 +271,19 @@ dc:title rdf:type owl:AnnotationProperty .
 
 
 
-###  http://aopkb.org/aop_ontology#has_sufficient_key_event
-
-:has_sufficient_key_event rdf:type owl:ObjectProperty .
-
-
-
 ###  http://aopkb.org/aop_ontology#has_threshold_response_value
 
 :has_threshold_response_value rdf:type owl:ObjectProperty ;
                               
                               rdfs:subPropertyOf :has_quantitative_measure .
+
+
+
+###  http://aopkb.org/aop_ontology#has_upstream_key_event
+
+:has_upstream_key_event rdf:type owl:ObjectProperty ;
+                        
+                        rdfs:subPropertyOf :has_key_event_relationship .
 
 
 
@@ -203,6 +304,12 @@ dc:title rdf:type owl:AnnotationProperty .
 
 
 
+###  http://aopkb.org/aop_ontology#is_biological_macromolecule
+
+:is_biological_macromolecule rdf:type owl:ObjectProperty .
+
+
+
 ###  http://aopkb.org/aop_ontology#is_causal_for
 
 :is_causal_for rdf:type owl:ObjectProperty .
@@ -215,12 +322,6 @@ dc:title rdf:type owl:AnnotationProperty .
 
 
 
-###  http://aopkb.org/aop_ontology#'has_key_event
-
-<http://aopkb.org/aop_ontology#'has_key_event> rdf:type owl:ObjectProperty .
-
-
-
 
 
 #################################################################
@@ -230,39 +331,18 @@ dc:title rdf:type owl:AnnotationProperty .
 #################################################################
 
 
-###  http://aopkb.org/aop_ontology#AID893_HSD17B4
+###  http://aopkb.org/aop_ontology#ActivatedAssayCall
 
-:AID893_HSD17B4 rdf:type owl:Class ;
-                
-                rdfs:subClassOf :Assay ;
-                
-                :PubChemAID 893 ;
-                
-                dc:title "qHTS Assay for Inhibitors of HSD17B4, hydroxysteroid (17-beta) dehydrogenase 4 [AID893, Type: confirmatory]" .
-
-
-
-###  http://aopkb.org/aop_ontology#AID893_HSD17B4_activated
-
-:AID893_HSD17B4_activated rdf:type owl:Class ;
-                          
-                          rdfs:subClassOf :AID893_HSD17B4 ,
-                                          [ rdf:type owl:Restriction ;
-                                            owl:onProperty :is_associated_with_key_event ;
-                                            owl:someValuesFrom :HSD17B4_activated
-                                          ] .
-
-
-
-###  http://aopkb.org/aop_ontology#AID893_HSD17B4_inactivated
-
-:AID893_HSD17B4_inactivated rdf:type owl:Class ;
-                            
-                            rdfs:subClassOf :AID893_HSD17B4 ,
-                                            [ rdf:type owl:Restriction ;
-                                              owl:onProperty :is_associated_with_key_event ;
-                                              owl:someValuesFrom :HSD17B4_inactivated
-                                            ] .
+:ActivatedAssayCall rdf:type owl:Class ;
+                    
+                    owl:equivalentClass [ rdf:type owl:Restriction ;
+                                          owl:onProperty :has_activated_key_event ;
+                                          owl:someValuesFrom :KeyEvent
+                                        ] ;
+                    
+                    rdfs:subClassOf :ChemBioAssayCall ;
+                    
+                    <http://purl.obolibrary.org/obo/IAO_0000115> "Assay that is activated at a given exposure concentration/dose." .
 
 
 
@@ -276,7 +356,12 @@ dc:title rdf:type owl:AnnotationProperty .
 
 ###  http://aopkb.org/aop_ontology#AdverseOutcomePathway
 
-:AdverseOutcomePathway rdf:type owl:Class .
+:AdverseOutcomePathway rdf:type owl:Class ;
+                       
+                       owl:equivalentClass [ rdf:type owl:Restriction ;
+                                             owl:onProperty :has_key_event_relationship ;
+                                             owl:someValuesFrom :KeyEventRelationship
+                                           ] .
 
 
 
@@ -286,68 +371,34 @@ dc:title rdf:type owl:AnnotationProperty .
 
 
 
-###  http://aopkb.org/aop_ontology#AopRole
+###  http://aopkb.org/aop_ontology#BioAssayCallAlgorithm
 
-:AopRole rdf:type owl:Class .
-
-
-
-###  http://aopkb.org/aop_ontology#Assay
-
-:Assay rdf:type owl:Class ;
-       
-       rdfs:subClassOf :PubChemEntity ,
-                       [ rdf:type owl:Restriction ;
-                         owl:onProperty :is_associated_with_key_event ;
-                         owl:someValuesFrom :AopEntity
-                       ] .
+:BioAssayCallAlgorithm rdf:type owl:Class .
 
 
 
-###  http://aopkb.org/aop_ontology#BkF_HSD17B4_SID17389160_AID893
+###  http://aopkb.org/aop_ontology#ChemBioAssayCall
 
-:BkF_HSD17B4_SID17389160_AID893 rdf:type owl:Class ;
-                                
-                                rdfs:subClassOf <http://aopkb.org/aop_ontology#Benzo[k]Benzo[k]BenzoKFluoranthenePubChem> ,
-                                                [ rdf:type owl:Restriction ;
-                                                  owl:onProperty :has_confidence ;
-                                                  owl:someValuesFrom :LowConfidence
-                                                ] ,
-                                                [ rdf:type owl:Restriction ;
-                                                  owl:onProperty :has_pubchem_assay ;
-                                                  owl:someValuesFrom :AID893_HSD17B4_inactivated
-                                                ] .
+:ChemBioAssayCall rdf:type owl:Class .
 
 
 
-###  http://aopkb.org/aop_ontology#ChemicalQualitativeData
+###  http://aopkb.org/aop_ontology#ChemBioAssayResults
 
-:ChemicalQualitativeData rdf:type owl:Class ;
-                         
-                         rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                           owl:onProperty :has_chemical_entity ;
-                                           owl:someValuesFrom <http://purl.obolibrary.org/obo/CHEBI_24431>
-                                         ] ,
-                                         [ rdf:type owl:Restriction ;
-                                           owl:onProperty :has_confidence ;
-                                           owl:someValuesFrom :ConfidenceLevels
-                                         ] ,
-                                         [ rdf:type owl:Restriction ;
-                                           owl:onProperty :has_pubchem_assay ;
-                                           owl:someValuesFrom :Assay
-                                         ] .
-
-
-
-###  http://aopkb.org/aop_ontology#Compound
-
-:Compound rdf:type owl:Class ;
-          
-          rdfs:subClassOf :PubChemEntity ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :has_chemical_entity ;
-                            owl:someValuesFrom <http://purl.obolibrary.org/obo/CHEBI_24431>
-                          ] .
+:ChemBioAssayResults rdf:type owl:Class ;
+                     
+                     rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                       owl:onProperty :has_chem_bio_assay_call ;
+                                       owl:someValuesFrom :ChemBioAssayCall
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty <http://www.bioassayontology.org/bao#BAO_0000209> ;
+                                       owl:someValuesFrom <http://www.bioassayontology.org/bao#BAO_0000040>
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :has_bioassay_call_algorithm ;
+                                       owl:someValuesFrom :BioAssayCallAlgorithm
+                                     ] .
 
 
 
@@ -359,29 +410,19 @@ dc:title rdf:type owl:AnnotationProperty .
 
 
 
+###  http://aopkb.org/aop_ontology#Evidence
+
+:Evidence rdf:type owl:Class .
+
+
+
 ###  http://aopkb.org/aop_ontology#HSD17B4
 
 :HSD17B4 rdf:type owl:Class ;
          
-         rdfs:subClassOf :KeyEvent .
-
-
-
-###  http://aopkb.org/aop_ontology#HSD17B4_activated
-
-:HSD17B4_activated rdf:type owl:Class ;
-                   
-                   rdfs:subClassOf :HSD17B4 ;
-                   
-                   owl:disjointWith :HSD17B4_inactivated .
-
-
-
-###  http://aopkb.org/aop_ontology#HSD17B4_inactivated
-
-:HSD17B4_inactivated rdf:type owl:Class ;
-                     
-                     rdfs:subClassOf :HSD17B4 .
+         rdfs:subClassOf :KeyEvent ;
+         
+         :UniProtID "P51659"^^xsd:string .
 
 
 
@@ -393,11 +434,26 @@ dc:title rdf:type owl:AnnotationProperty .
 
 
 
+###  http://aopkb.org/aop_ontology#InactivatedAssayCall
+
+:InactivatedAssayCall rdf:type owl:Class ;
+                      
+                      owl:equivalentClass [ rdf:type owl:Restriction ;
+                                            owl:onProperty :has_inactivated_key_event ;
+                                            owl:someValuesFrom :KeyEvent
+                                          ] ;
+                      
+                      rdfs:subClassOf :ChemBioAssayCall ;
+                      
+                      <http://purl.obolibrary.org/obo/IAO_0000115> "Assay that is inactivated at a given concentration/dose" .
+
+
+
 ###  http://aopkb.org/aop_ontology#IntermediateEvent
 
 :IntermediateEvent rdf:type owl:Class ;
                    
-                   rdfs:subClassOf :AopEntity .
+                   rdfs:subClassOf :KeyEventType .
 
 
 
@@ -405,7 +461,46 @@ dc:title rdf:type owl:AnnotationProperty .
 
 :KeyEvent rdf:type owl:Class ;
           
+          owl:equivalentClass [ rdf:type owl:Restriction ;
+                                owl:onProperty :is_biological_macromolecule ;
+                                owl:someValuesFrom <http://www.bioassayontology.org/bao#BAO_0003111>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :has_key_event_type ;
+                                owl:someValuesFrom :KeyEventType
+                              ] ;
+          
           rdfs:subClassOf :AopEntity .
+
+
+
+###  http://aopkb.org/aop_ontology#KeyEventRelationship
+
+:KeyEventRelationship rdf:type owl:Class ;
+                      
+                      owl:equivalentClass [ rdf:type owl:Restriction ;
+                                            owl:onProperty :has_downstream_key_event ;
+                                            owl:someValuesFrom :KeyEvent
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :has_evidence ;
+                                            owl:someValuesFrom :Evidence
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :has_upstream_key_event ;
+                                            owl:someValuesFrom :KeyEvent
+                                          ] ;
+                      
+                      rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                        owl:onProperty :has_evidence ;
+                                        owl:someValuesFrom :Evidence
+                                      ] .
+
+
+
+###  http://aopkb.org/aop_ontology#KeyEventType
+
+:KeyEventType rdf:type owl:Class .
 
 
 
@@ -425,17 +520,29 @@ dc:title rdf:type owl:AnnotationProperty .
 
 
 
+###  http://aopkb.org/aop_ontology#MolecularInitatingEvent
+
+:MolecularInitatingEvent rdf:type owl:Class ;
+                         
+                         rdfs:subClassOf :KeyEventType .
+
+
+
+###  http://aopkb.org/aop_ontology#NoChangeAssayCall
+
+:NoChangeAssayCall rdf:type owl:Class ;
+                   
+                   rdfs:subClassOf :ChemBioAssayCall ;
+                   
+                   <http://purl.obolibrary.org/obo/IAO_0000115> "Assay that has no change compared to control." .
+
+
+
 ###  http://aopkb.org/aop_ontology#PointOfDeparture
 
 :PointOfDeparture rdf:type owl:Class ;
                   
                   rdfs:subClassOf :QuantitativeMeasures .
-
-
-
-###  http://aopkb.org/aop_ontology#PubChemEntity
-
-:PubChemEntity rdf:type owl:Class .
 
 
 
@@ -475,103 +582,179 @@ dc:title rdf:type owl:AnnotationProperty .
 
 
 
-###  http://aopkb.org/aop_ontology#SID17389160_BenzoKFluoranthene
+###  http://aopkb.org/aop_ontology#SREBP1
 
-:SID17389160_BenzoKFluoranthene rdf:type owl:Class ;
-                                
-                                rdfs:subClassOf :Substance .
-
-
-
-###  http://aopkb.org/aop_ontology#Steatosis
-
-:Steatosis rdf:type owl:Class ;
-           
-           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                 owl:onProperty :has_pubchem_assay ;
-                                 owl:someValuesFrom :AID893_HSD17B4_inactivated
-                               ] ;
-           
-           rdfs:subClassOf :AdverseOutcome .
+:SREBP1 rdf:type owl:Class ;
+        
+        rdfs:subClassOf :KeyEvent .
 
 
 
-###  http://aopkb.org/aop_ontology#Steatosis_high_confidence
+###  http://aopkb.org/aop_ontology#SufficientKeyEvent
 
-:Steatosis_high_confidence rdf:type owl:Class ;
-                           
-                           rdfs:subClassOf :Steatosis .
+:SufficientKeyEvent rdf:type owl:Class ;
+                    
+                    rdfs:subClassOf :KeyEventType .
 
 
 
-###  http://aopkb.org/aop_ontology#Steatosis_low_confidence
 
-:Steatosis_low_confidence rdf:type owl:Class ;
+
+#################################################################
+#
+#    Individuals
+#
+#################################################################
+
+
+###  http://aopkb.org/aop_ontology#BayesNSMR
+
+:BayesNSMR rdf:type :BioAssayCallAlgorithm ,
+                    owl:NamedIndividual .
+
+
+
+###  http://aopkb.org/aop_ontology#BkF
+
+:BkF rdf:type <http://www.bioassayontology.org/bao#BAO_0000176> ,
+              owl:NamedIndividual .
+
+
+
+###  http://aopkb.org/aop_ontology#BkF15umBayesNSMRCall
+
+:BkF15umBayesNSMRCall rdf:type :InactivatedAssayCall ,
+                               owl:NamedIndividual ;
+                      
+                      :has_inactivated_key_event :HSD17B4 .
+
+
+
+###  http://aopkb.org/aop_ontology#BkF15umBioAssayResults
+
+:BkF15umBioAssayResults rdf:type :ChemBioAssayResults ,
+                                 owl:NamedIndividual ;
+                        
+                        :has_bioassay_call_algorithm :BayesNSMR ;
+                        
+                        :has_chem_bio_assay_call :BkF15umBayesNSMRCall ;
+                        
+                        <http://www.bioassayontology.org/bao#BAO_0000209> :measure_group_bkf_15um .
+
+
+
+###  http://aopkb.org/aop_ontology#HSD17B4
+
+:HSD17B4 rdf:type :HSD17B4 ,
+                  <http://www.bioassayontology.org/bao#BAO_0000291> ,
+                  owl:NamedIndividual ;
+         
+         <http://www.bioassayontology.org/bao#BAO_0003102> :enzyme_target .
+
+
+
+###  http://aopkb.org/aop_ontology#SREBP1
+
+:SREBP1 rdf:type :SREBP1 ,
+                 owl:NamedIndividual .
+
+
+
+###  http://aopkb.org/aop_ontology#antagonism_HSD17B4_unknown_mechanism
+
+:antagonism_HSD17B4_unknown_mechanism rdf:type <http://www.bioassayontology.org/bao#BAO_0002903> ,
+                                               owl:NamedIndividual .
+
+
+
+###  http://aopkb.org/aop_ontology#bkf_15um
+
+:bkf_15um rdf:type <http://www.bioassayontology.org/bao#BAO_0000098> ,
+                   owl:NamedIndividual ;
+          
+          <http://www.bioassayontology.org/bao#BAO_0002666> "15.0"^^xsd:float ;
+          
+          <http://www.bioassayontology.org/bao#BAO_0000559> :measure_group_bkf_15um ;
+          
+          <http://www.bioassayontology.org/bao#BAO_0000183> :micromolar .
+
+
+
+###  http://aopkb.org/aop_ontology#enzyme_target
+
+:enzyme_target rdf:type <http://www.bioassayontology.org/bao#BAO_0003064> ,
+                        owl:NamedIndividual .
+
+
+
+###  http://aopkb.org/aop_ontology#hsd17b4_bioassay
+
+:hsd17b4_bioassay rdf:type <http://www.bioassayontology.org/bao#BAO_0002792> ,
+                           owl:NamedIndividual ;
+                  
+                  :PubChemAID 893 ;
+                  
+                  <http://www.bioassayontology.org/bao#BAO_0090012> :BkF ,
+                                                                    :HSD17B4 ;
+                  
+                  <http://www.bioassayontology.org/bao#BAO_0000208> :hsd17b4_percent_activity ;
+                  
+                  <http://www.bioassayontology.org/bao#BAO_0000209> :measure_group_bkf_15um .
+
+
+
+###  http://aopkb.org/aop_ontology#hsd17b4_percent_activity
+
+:hsd17b4_percent_activity rdf:type <http://www.bioassayontology.org/bao#BAO_0001103> ,
+                                   owl:NamedIndividual ;
                           
-                          owl:equivalentClass [ rdf:type owl:Class ;
-                                                owl:intersectionOf ( [ rdf:type owl:Restriction ;
-                                                                       owl:onProperty :has_confidence ;
-                                                                       owl:someValuesFrom :LowConfidence
-                                                                     ]
-                                                                     [ rdf:type owl:Restriction ;
-                                                                       owl:onProperty :has_pubchem_assay ;
-                                                                       owl:someValuesFrom :AID893_HSD17B4_inactivated
-                                                                     ]
-                                                                   )
-                                              ] ;
+                          <http://www.bioassayontology.org/bao#BAO_0000195> "0.9"^^xsd:float ;
                           
-                          rdfs:subClassOf :Steatosis .
+                          <http://www.bioassayontology.org/bao#BAO_0000196> :antagonism_HSD17B4_unknown_mechanism ;
+                          
+                          <http://www.bioassayontology.org/bao#BAO_0001105> :percent_activiation_normalization .
 
 
 
-###  http://aopkb.org/aop_ontology#Steatosis_moderate_confidence
+###  http://aopkb.org/aop_ontology#measure_group_bkf_15um
 
-:Steatosis_moderate_confidence rdf:type owl:Class ;
-                               
-                               rdfs:subClassOf :Steatosis .
+:measure_group_bkf_15um rdf:type <http://www.bioassayontology.org/bao#BAO_0000040> ,
+                                 owl:NamedIndividual ;
+                        
+                        <http://www.bioassayontology.org/bao#BAO_0090012> :BkF ,
+                                                                          :HSD17B4 ;
+                        
+                        <http://www.bioassayontology.org/bao#BAO_0000426> :hsd17b4_bioassay ;
+                        
+                        <http://www.bioassayontology.org/bao#BAO_0000208> :hsd17b4_percent_activity .
 
 
 
-###  http://aopkb.org/aop_ontology#Substance
+###  http://aopkb.org/aop_ontology#micromolar
 
-:Substance rdf:type owl:Class ;
+:micromolar rdf:type <http://www.bioassayontology.org/bao#BAO_0190000> ,
+                     owl:NamedIndividual .
+
+
+
+###  http://aopkb.org/aop_ontology#percent_activiation_normalization
+
+:percent_activiation_normalization rdf:type <http://www.bioassayontology.org/bao#BAO_0001104> ,
+                                            owl:NamedIndividual .
+
+
+
+###  http://aopkb.org/aop_ontology#steatosis
+
+:steatosis rdf:type :AdverseOutcome ,
+                    owl:NamedIndividual ;
            
-           rdfs:subClassOf :PubChemEntity ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :has_pubchem_compound ;
-                             owl:someValuesFrom :Compound
-                           ] .
+           :has_inactivated_key_event :HSD17B4 .
 
 
 
-###  http://aopkb.org/aop_ontology#'Benzo[k]fluoranthene'Benzo[k]Benzo(k)BenzoKFluoranthene
-
-<http://aopkb.org/aop_ontology#'Benzo[k]fluoranthene'Benzo[k]Benzo(k)BenzoKFluoranthene> rdf:type owl:Class ;
-                                                                                         
-                                                                                         rdfs:subClassOf :Compound ;
-                                                                                         
-                                                                                         :PubChemCID 9158 .
-
-
-
-###  http://aopkb.org/aop_ontology#Benzo[k]Benzo[k]BenzoKFluoranthenePubChem
-
-<http://aopkb.org/aop_ontology#Benzo[k]Benzo[k]BenzoKFluoranthenePubChem> rdf:type owl:Class ;
-                                                                          
-                                                                          rdfs:subClassOf :ChemicalQualitativeData ,
-                                                                                          [ rdf:type owl:Restriction ;
-                                                                                            owl:onProperty :has_pubchem_compound ;
-                                                                                            owl:someValuesFrom <http://aopkb.org/aop_ontology#'Benzo[k]fluoranthene'Benzo[k]Benzo(k)BenzoKFluoranthene>
-                                                                                          ] ,
-                                                                                          [ rdf:type owl:Restriction ;
-                                                                                            owl:onProperty :has_chemical_entity ;
-                                                                                            owl:someValuesFrom <http://purl.obolibrary.org/obo/CHEBI_34569>
-                                                                                          ] ;
-                                                                          
-                                                                          :PubChemCID 9158 .
-
-
-
+[ <http://www.bioassayontology.org/bao#BAO_0000195> "0.9"^^xsd:float
+] .
 
 
 #################################################################
@@ -581,12 +764,6 @@ dc:title rdf:type owl:AnnotationProperty .
 #################################################################
 
 
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :Assay
-                :Compound
-                :Substance
-              )
-] .
 [ rdf:type owl:AllDisjointClasses ;
   owl:members ( :HighConfidence
                 :LowConfidence

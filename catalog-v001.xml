@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="Imports Wizard Entry" name="http://www.bioassayontology.org/bao/bao_core.owl" uri="bao_complete.owl"/>
+    <uri id="Imports Wizard Entry" name="http://www.bioassayontology.org/bao/bao_complete.owl" uri="bao_complete.owl"/>
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1412771234059" name="ftp://ftp.ebi.ac.uk/pub/databases/chebi/ontology/chebi.owl" uri="chebi.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1412771234059" name="duplicate:http://aopkb.org/aop_ontology" uri="aopkbo%20--%20working_lyle%20141001.ttl"/>
-        <uri id="Automatically generated entry, Timestamp=1412771234059" name="duplicate:http://aopkb.org/aop_ontology" uri="aopkbo%20--%20working_lyle%20141002%20--%20reasoned.ttl"/>
+        <uri id="Automatically generated entry, Timestamp=1429725698994" name="ftp://ftp.ebi.ac.uk/pub/databases/chebi/ontology/chebi.owl" uri="chebi.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1429725698994" name="duplicate:http://aopkb.org/aop_ontology" uri="aopkbo%20--%20working_lyle%20141001.ttl"/>
+        <uri id="Automatically generated entry, Timestamp=1429725698994" name="duplicate:http://aopkb.org/aop_ontology" uri="aopkbo%20--%20working_lyle%20141002%20--%20reasoned.ttl"/>
+        <uri id="Automatically generated entry, Timestamp=1429725698994" name="http://www.bioassayontology.org/bao/bao_core_axiom.owl" uri="bao_complete.owl"/>
     </group>
 </catalog>
