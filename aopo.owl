@@ -1,0 +1,868 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY obo "http://purl.obolibrary.org/obo/" >
+    <!ENTITY obo2 "http://purl.obolibrary.org/obo#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY bao "http://www.bioassayontology.org/bao#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://aopkb.org/aop_ontology#"
+     xml:base="http://aopkb.org/aop_ontology"
+     xmlns:bao="http://www.bioassayontology.org/bao#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:obo2="http://purl.obolibrary.org/obo#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:obo="http://purl.obolibrary.org/obo/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <owl:Ontology rdf:about="http://aopkb.org/aop_ontology">
+        <owl:imports rdf:resource="ftp://ftp.ebi.ac.uk/pub/databases/chebi/ontology/chebi.owl"/>
+        <owl:imports rdf:resource="http://www.bioassayontology.org/bao/bao_core.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#PubChemAID -->
+
+    <owl:AnnotationProperty rdf:about="http://aopkb.org/aop_ontology#PubChemAID"/>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#PubChemCID -->
+
+    <owl:AnnotationProperty rdf:about="http://aopkb.org/aop_ontology#PubChemCID"/>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#UniProtID -->
+
+    <owl:AnnotationProperty rdf:about="http://aopkb.org/aop_ontology#UniProtID"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <owl:AnnotationProperty rdf:about="&dc;title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#has_activated_key_event -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#has_activated_key_event">
+        <rdfs:subPropertyOf rdf:resource="http://aopkb.org/aop_ontology#has_key_event"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#has_adverse_outcome -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#has_adverse_outcome">
+        <rdfs:subPropertyOf rdf:resource="http://aopkb.org/aop_ontology#has_key_event"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#has_algorithm -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#has_algorithm">
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_algorithm"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#BioAssayCallAlgorithm"/>
+            </owl:Restriction>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#has_assay -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#has_assay"/>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#has_base_uri -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#has_base_uri"/>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#has_bioassay -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#has_bioassay">
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_bioassay"/>
+                <owl:someValuesFrom rdf:resource="&bao;BAO_0000015"/>
+            </owl:Restriction>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#has_bioassay_call_algorithm -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#has_bioassay_call_algorithm"/>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#has_chem_bio_assay_call -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#has_chem_bio_assay_call"/>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#has_chemical_entity -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#has_chemical_entity">
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_chemical_entity"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#ChemBioAssayCall"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_chemical_entity"/>
+                <owl:someValuesFrom rdf:resource="&obo;CHEBI_24431"/>
+            </owl:Restriction>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#has_confidence -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#has_confidence">
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_confidence"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#AdverseOutcome"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_confidence"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#ChemBioAssayCall"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_confidence"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#ConfidenceLevels"/>
+            </owl:Restriction>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#has_downstream_key_event -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#has_downstream_key_event">
+        <rdfs:subPropertyOf rdf:resource="http://aopkb.org/aop_ontology#has_key_event_relationship"/>
+        <owl:propertyDisjointWith rdf:resource="http://aopkb.org/aop_ontology#has_upstream_key_event"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#has_evidence -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#has_evidence"/>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#has_inactivated_key_event -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#has_inactivated_key_event">
+        <rdfs:subPropertyOf rdf:resource="http://aopkb.org/aop_ontology#has_key_event"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#has_intermediate_event -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#has_intermediate_event"/>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#has_key_event -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#has_key_event">
+        <rdfs:range rdf:resource="http://aopkb.org/aop_ontology#KeyEvent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#has_key_event_relationship -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#has_key_event_relationship">
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_key_event_relationship"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#KeyEvent"/>
+            </owl:Restriction>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#has_key_event_type -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#has_key_event_type"/>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#has_molecular_initiating_event -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#has_molecular_initiating_event">
+        <rdfs:subPropertyOf rdf:resource="http://aopkb.org/aop_ontology#has_key_event"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#has_point_of_departure -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#has_point_of_departure">
+        <rdfs:subPropertyOf rdf:resource="http://aopkb.org/aop_ontology#has_quantitative_measure"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#has_pubchem_assay -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#has_pubchem_assay">
+        <rdfs:subPropertyOf rdf:resource="http://aopkb.org/aop_ontology#has_pubchem_entity"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_pubchem_assay"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#AopEntity"/>
+            </owl:Restriction>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#has_pubchem_compound -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#has_pubchem_compound">
+        <rdfs:subPropertyOf rdf:resource="http://aopkb.org/aop_ontology#has_pubchem_entity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#has_pubchem_entity -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#has_pubchem_entity"/>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#has_pubchem_substance -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#has_pubchem_substance">
+        <rdfs:subPropertyOf rdf:resource="http://aopkb.org/aop_ontology#has_pubchem_entity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#has_quantitative_measure -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#has_quantitative_measure"/>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#has_risk_specific_dose -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#has_risk_specific_dose">
+        <rdfs:subPropertyOf rdf:resource="http://aopkb.org/aop_ontology#has_quantitative_measure"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#has_threshold_response_value -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#has_threshold_response_value">
+        <rdfs:subPropertyOf rdf:resource="http://aopkb.org/aop_ontology#has_quantitative_measure"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#has_upstream_key_event -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#has_upstream_key_event">
+        <rdfs:subPropertyOf rdf:resource="http://aopkb.org/aop_ontology#has_key_event_relationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#is_adverse_outcome -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#is_adverse_outcome"/>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#is_associated_with_key_event -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#is_associated_with_key_event">
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#is_associated_with_key_event"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#KeyEvent"/>
+            </owl:Restriction>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#is_biological_macromolecule -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#is_biological_macromolecule"/>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#is_causal_for -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#is_causal_for"/>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#is_molecular_initiating_event -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#is_molecular_initiating_event"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#ActivatedAssayCall -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#ActivatedAssayCall">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_activated_key_event"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#KeyEvent"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#ChemBioAssayCall"/>
+        <obo:IAO_0000115>Assay that is activated at a given exposure concentration/dose.</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#AdverseOutcome -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#AdverseOutcome">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#AopEntity"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Any undesired and harmful effect or outcome.</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#AdverseOutcomePathway -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#AdverseOutcomePathway">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_key_event_relationship"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#KeyEventRelationship"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_adverse_outcome"/>
+                <owl:onClass rdf:resource="http://aopkb.org/aop_ontology#AdverseOutcome"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_molecular_initiating_event"/>
+                <owl:onClass rdf:resource="http://aopkb.org/aop_ontology#KeyEvent"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <obo2:Definition rdf:datatype="&xsd;string">An Adverse Outcome Pathway (AOP) is a conceptual framework that portrays existing knowledge concerning the linkage between two anchor points - the Molecular Initiating Event (MIE), and an Adverse Outcome (AO), connected by a chain of Key Events (KE) and the relationships between them (KER).</obo2:Definition>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#AopEntity -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#AopEntity">
+        <obo2:Definition rdf:datatype="&xsd;string">An entity that is part of an adverse outcome pathway</obo2:Definition>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#BioAssayCallAlgorithm -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#BioAssayCallAlgorithm">
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">This is the algorithm that is used to make a &quot;hit&quot; call from a bioassay. Generally, there is some type of decision rule that is used by an algorithm to make this call.</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#ChemBioAssayCall -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#ChemBioAssayCall">
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">This is an assay &quot;hit&quot; call made by a BioAssayCallAlgorithm</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#ChemBioAssayResults -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#ChemBioAssayResults">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_chem_bio_assay_call"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#ChemBioAssayCall"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&bao;BAO_0000209"/>
+                <owl:someValuesFrom rdf:resource="&bao;BAO_0000040"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_bioassay_call_algorithm"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#BioAssayCallAlgorithm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">This class represents a hit call (ChemBioAssayCall) from a specific assay result at a specific chemical concentration (measure group) using a specific BioAssayCallAlgorithm. In other words, this is a collection class.</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#ConfidenceLevels -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#ConfidenceLevels">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#QualitativeMeasures"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#Evidence -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#Evidence"/>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#HSD17B4 -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#HSD17B4">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#KeyEvent"/>
+        <UniProtID rdf:datatype="&xsd;string">P51659</UniProtID>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#HighConfidence -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#HighConfidence">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#ConfidenceLevels"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#InactivatedAssayCall -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#InactivatedAssayCall">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_inactivated_key_event"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#KeyEvent"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#ChemBioAssayCall"/>
+        <obo:IAO_0000115>Assay that is inactivated at a given concentration/dose</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#IntermediateEvent -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#IntermediateEvent">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#KeyEventType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#KeyEvent -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#KeyEvent">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_key_event_type"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#KeyEventType"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#is_biological_macromolecule"/>
+                <owl:someValuesFrom rdf:resource="&bao;BAO_0003111"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#AopEntity"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A necessary event that must occur for an adverse outcome to develop or be triggered.</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#KeyEventRelationship -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#KeyEventRelationship">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_downstream_key_event"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#KeyEvent"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_upstream_key_event"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#KeyEvent"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_evidence"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#Evidence"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#AopEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_evidence"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#Evidence"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo2:Definition rdf:datatype="&xsd;string">A relationship between two key events.</obo2:Definition>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#KeyEventType -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#KeyEventType">
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">These classes are placeholders for future use, and are not used at this time.</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#LowConfidence -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#LowConfidence">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#ConfidenceLevels"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#MediumConfidence -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#MediumConfidence">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#ConfidenceLevels"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#MolecularInitatingEvent -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#MolecularInitatingEvent">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#KeyEventType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#NoChangeAssayCall -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#NoChangeAssayCall">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#ChemBioAssayCall"/>
+        <obo:IAO_0000115>Assay that has no change compared to control.</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#PointOfDeparture -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#PointOfDeparture">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#QuantitativeMeasures"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#QualitativeMeasures -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#QualitativeMeasures">
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">This is a series of classes that are not in use at this time.</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#QuantitativeMeasures -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#QuantitativeMeasures">
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">This is a series of classes that are not yet used.</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#RiskSpecificDose -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#RiskSpecificDose">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#QuantitativeMeasures"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#RiskSpecificDose1in1000 -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#RiskSpecificDose1in1000">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#RiskSpecificDose"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#RiskSpecificDose1in10000 -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#RiskSpecificDose1in10000">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#RiskSpecificDose"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#SREBP1 -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#SREBP1">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#KeyEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#SufficientKeyEvent -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#SufficientKeyEvent">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#KeyEventType"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#BayesNSMR -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#BayesNSMR">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#BioAssayCallAlgorithm"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">This is the Bayesian natural spline metaregression algorithm. A probability function is derived at each tested concentration within a bioassay using a natural spline metaregression algorithm.</obo:IAO_0000115>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#BkF -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#BkF">
+        <rdf:type rdf:resource="&bao;BAO_0000176"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#BkF15umBayesNSMRCall -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#BkF15umBayesNSMRCall">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#InactivatedAssayCall"/>
+        <has_inactivated_key_event rdf:resource="http://aopkb.org/aop_ontology#HSD17B4"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#BkF15umBioAssayResults -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#BkF15umBioAssayResults">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#ChemBioAssayResults"/>
+        <has_bioassay_call_algorithm rdf:resource="http://aopkb.org/aop_ontology#BayesNSMR"/>
+        <has_chem_bio_assay_call rdf:resource="http://aopkb.org/aop_ontology#BkF15umBayesNSMRCall"/>
+        <bao:BAO_0000209 rdf:resource="http://aopkb.org/aop_ontology#measure_group_bkf_15um"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#HSD17B4 -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#HSD17B4">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#HSD17B4"/>
+        <rdf:type rdf:resource="&bao;BAO_0000291"/>
+        <bao:BAO_0003102 rdf:resource="http://aopkb.org/aop_ontology#enzyme_target"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#SREBP1 -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#SREBP1">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#SREBP1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#antagonism_HSD17B4_unknown_mechanism -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#antagonism_HSD17B4_unknown_mechanism">
+        <rdf:type rdf:resource="&bao;BAO_0002903"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#bkf_15um -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#bkf_15um">
+        <rdf:type rdf:resource="&bao;BAO_0000098"/>
+        <bao:BAO_0002666 rdf:datatype="&xsd;float">15.0</bao:BAO_0002666>
+        <bao:BAO_0000559 rdf:resource="http://aopkb.org/aop_ontology#measure_group_bkf_15um"/>
+        <bao:BAO_0000183 rdf:resource="http://aopkb.org/aop_ontology#micromolar"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#enzyme_target -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#enzyme_target">
+        <rdf:type rdf:resource="&bao;BAO_0003064"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#hsd17b4_bioassay -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#hsd17b4_bioassay">
+        <rdf:type rdf:resource="&bao;BAO_0002792"/>
+        <PubChemAID rdf:datatype="&xsd;integer">893</PubChemAID>
+        <bao:BAO_0090012 rdf:resource="http://aopkb.org/aop_ontology#BkF"/>
+        <bao:BAO_0090012 rdf:resource="http://aopkb.org/aop_ontology#HSD17B4"/>
+        <bao:BAO_0000208 rdf:resource="http://aopkb.org/aop_ontology#hsd17b4_percent_activity"/>
+        <bao:BAO_0000209 rdf:resource="http://aopkb.org/aop_ontology#measure_group_bkf_15um"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#hsd17b4_percent_activity -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#hsd17b4_percent_activity">
+        <rdf:type rdf:resource="&bao;BAO_0001103"/>
+        <bao:BAO_0000195 rdf:datatype="&xsd;float">0.9</bao:BAO_0000195>
+        <bao:BAO_0000196 rdf:resource="http://aopkb.org/aop_ontology#antagonism_HSD17B4_unknown_mechanism"/>
+        <bao:BAO_0001105 rdf:resource="http://aopkb.org/aop_ontology#percent_activiation_normalization"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#measure_group_bkf_15um -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#measure_group_bkf_15um">
+        <rdf:type rdf:resource="&bao;BAO_0000040"/>
+        <bao:BAO_0090012 rdf:resource="http://aopkb.org/aop_ontology#BkF"/>
+        <bao:BAO_0090012 rdf:resource="http://aopkb.org/aop_ontology#HSD17B4"/>
+        <bao:BAO_0000426 rdf:resource="http://aopkb.org/aop_ontology#hsd17b4_bioassay"/>
+        <bao:BAO_0000208 rdf:resource="http://aopkb.org/aop_ontology#hsd17b4_percent_activity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#micromolar -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#micromolar">
+        <rdf:type rdf:resource="&bao;BAO_0190000"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#percent_activiation_normalization -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#percent_activiation_normalization">
+        <rdf:type rdf:resource="&bao;BAO_0001104"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#steatosis -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#steatosis">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#AdverseOutcome"/>
+        <has_inactivated_key_event rdf:resource="http://aopkb.org/aop_ontology#HSD17B4"/>
+    </owl:NamedIndividual>
+    <rdf:Description>
+        <bao:BAO_0000195 rdf:datatype="&xsd;float">0.9</bao:BAO_0000195>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://aopkb.org/aop_ontology#HighConfidence"/>
+            <rdf:Description rdf:about="http://aopkb.org/aop_ontology#LowConfidence"/>
+            <rdf:Description rdf:about="http://aopkb.org/aop_ontology#MediumConfidence"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+
