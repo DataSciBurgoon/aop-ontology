@@ -207,6 +207,12 @@
     <!-- http://aopkb.org/aop_ontology#has_confidence -->
 
     <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#has_confidence">
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_confidence"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#ChemBioAssayCall"/>
+            </owl:Restriction>
+        </rdfs:domain>
         <rdfs:range>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_confidence"/>
@@ -217,12 +223,6 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_confidence"/>
                 <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#AdverseOutcome"/>
-            </owl:Restriction>
-        </rdfs:domain>
-        <rdfs:domain>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_confidence"/>
-                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#ChemBioAssayCall"/>
             </owl:Restriction>
         </rdfs:domain>
     </owl:ObjectProperty>
@@ -464,6 +464,12 @@
     
 
 
+    <!-- http://aopkb.org/aop_ontology#is_pathological_entity -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#is_pathological_entity"/>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -479,6 +485,26 @@
 
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#AO-NeuralTubeDefect">
         <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#DevelopmentalAdverseOutcome"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#AO-Steatosis -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#AO-Steatosis">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_inactivated_key_event"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#HSD17B4"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#LiverAdverseOutcome"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#is_pathological_entity"/>
+                <owl:someValuesFrom rdf:resource="&obo;MPATH_622"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -536,15 +562,15 @@
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#AdverseOutcomePathway">
         <owl:equivalentClass>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_chemical_mie_relationship"/>
-                <owl:onClass rdf:resource="http://aopkb.org/aop_ontology#ChemicalMIERelationship"/>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_adverse_outcome"/>
+                <owl:onClass rdf:resource="http://aopkb.org/aop_ontology#AdverseOutcome"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </owl:equivalentClass>
         <owl:equivalentClass>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_adverse_outcome"/>
-                <owl:onClass rdf:resource="http://aopkb.org/aop_ontology#AdverseOutcome"/>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_chemical_mie_relationship"/>
+                <owl:onClass rdf:resource="http://aopkb.org/aop_ontology#ChemicalMIERelationship"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </owl:equivalentClass>
@@ -606,14 +632,14 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_bioassay_call_algorithm"/>
-                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#BioAssayCallAlgorithm"/>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_chem_bio_assay_call"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#ChemBioAssayCall"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_chem_bio_assay_call"/>
-                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#ChemBioAssayCall"/>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_bioassay_call_algorithm"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#BioAssayCallAlgorithm"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">This class represents a hit call (ChemBioAssayCall) from a specific assay result at a specific chemical concentration (measure group) using a specific BioAssayCallAlgorithm. In other words, this is a collection class.</obo:IAO_0000115>
@@ -627,8 +653,8 @@
         <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#AopRelationship"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_evidence"/>
-                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#Evidence"/>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_chemical_entity"/>
+                <owl:someValuesFrom rdf:resource="&obo;CHEBI_24431"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -639,8 +665,8 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_chemical_entity"/>
-                <owl:someValuesFrom rdf:resource="&obo;CHEBI_24431"/>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_evidence"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#Evidence"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">This class encodes a relationship between a chemical and a molecular initiating event. It is possible that a given chemical and MIE have more than one relationship. For instance, a selective estrogen receptor modulator (SERM) may activate and deactivate estrogen receptor activity, resulting in more than one relationship.</obo:IAO_0000115>
@@ -776,14 +802,14 @@
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#KeyEvent">
         <owl:equivalentClass>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_key_event_type"/>
-                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#KeyEventType"/>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#is_biological_macromolecule"/>
+                <owl:someValuesFrom rdf:resource="&bao;BAO_0003111"/>
             </owl:Restriction>
         </owl:equivalentClass>
         <owl:equivalentClass>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#is_biological_macromolecule"/>
-                <owl:someValuesFrom rdf:resource="&bao;BAO_0003111"/>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_key_event_type"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#KeyEventType"/>
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#AopEntity"/>
@@ -797,26 +823,26 @@
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#KeyEventRelationship">
         <owl:equivalentClass>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_downstream_key_event"/>
-                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#AopEntity"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
-        <owl:equivalentClass>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_downstream_key_event_modulation"/>
                 <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#Modulation"/>
             </owl:Restriction>
         </owl:equivalentClass>
         <owl:equivalentClass>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_evidence"/>
-                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#Evidence"/>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_upstream_key_event"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#AopEntity"/>
             </owl:Restriction>
         </owl:equivalentClass>
         <owl:equivalentClass>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_upstream_key_event"/>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_downstream_key_event"/>
                 <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#AopEntity"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_evidence"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#Evidence"/>
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#AopRelationship"/>
@@ -1147,12 +1173,14 @@
 
     <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#aop_neural_tube_defect_hoxb1">
         <rdf:type rdf:resource="http://aopkb.org/aop_ontology#NeuralTubeDefect"/>
+        <rdfs:label rdf:datatype="&xsd;string">AOP Neural Tube Defect via Hoxb1</rdfs:label>
         <has_adverse_outcome rdf:resource="http://aopkb.org/aop_ontology#neural_tube_defect"/>
         <has_key_event_relationship rdf:resource="http://aopkb.org/aop_ontology#relationship_hoxb1_gene_expression_hoxb1_protein_translation"/>
         <has_key_event_relationship rdf:resource="http://aopkb.org/aop_ontology#relationship_hoxb1_neural_tube_defect"/>
-        <has_chemical_mie_relationship rdf:resource="http://aopkb.org/aop_ontology#relationship_mie_rar_rxr_heterodimer"/>
+        <has_key_event_relationship rdf:resource="http://aopkb.org/aop_ontology#relationship_mie_rar_rxr_heterodimer"/>
+        <has_key_event_relationship rdf:resource="http://aopkb.org/aop_ontology#relationship_rar_mie"/>
+        <has_chemical_mie_relationship rdf:resource="http://aopkb.org/aop_ontology#relationship_rar_mie"/>
         <has_key_event_relationship rdf:resource="http://aopkb.org/aop_ontology#relationship_rar_rxr_heterodimer_hoxb1_gene_expression"/>
-        <has_key_event_relationship rdf:resource="http://aopkb.org/aop_ontology#relationship_retinoic_acid_rar_rxr_heterodimer"/>
     </owl:NamedIndividual>
     
 
@@ -1319,9 +1347,18 @@
 
     <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#relationship_mie_rar_rxr_heterodimer">
         <rdf:type rdf:resource="http://aopkb.org/aop_ontology#KeyEventRelationship"/>
-        <has_upstream_key_event rdf:resource="http://aopkb.org/aop_ontology#RAR_ligand_mediated_activation"/>
         <has_downstream_key_event_modulation rdf:resource="http://aopkb.org/aop_ontology#activity_activation"/>
+        <has_upstream_key_event rdf:resource="http://aopkb.org/aop_ontology#rar"/>
         <has_downstream_key_event rdf:resource="http://aopkb.org/aop_ontology#rar_rxr_heterodimer"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#relationship_rar_mie -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#relationship_rar_mie">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#ChemicalMIERelationship"/>
+        <has_molecular_initiating_event rdf:resource="http://aopkb.org/aop_ontology#RAR_ligand_mediated_activation"/>
     </owl:NamedIndividual>
     
 
@@ -1337,14 +1374,6 @@
     
 
 
-    <!-- http://aopkb.org/aop_ontology#relationship_retinoic_acid_rar_rxr_heterodimer -->
-
-    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#relationship_retinoic_acid_rar_rxr_heterodimer">
-        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#ChemicalMIERelationship"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://aopkb.org/aop_ontology#rxr -->
 
     <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#rxr">
@@ -1356,7 +1385,7 @@
     <!-- http://aopkb.org/aop_ontology#steatosis -->
 
     <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#steatosis">
-        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#LiverAdverseOutcome"/>
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#AO-Steatosis"/>
         <rdf:type rdf:resource="&obo;MPATH_622"/>
         <has_inactivated_key_event rdf:resource="http://aopkb.org/aop_ontology#HSD17B4"/>
     </owl:NamedIndividual>

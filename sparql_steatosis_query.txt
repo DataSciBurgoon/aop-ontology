@@ -7,9 +7,9 @@ PREFIX bao: <http://www.bioassayontology.org/bao#>
 
 SELECT DISTINCT ?ao ?ke
 WHERE { 
-	?ao rdf:type aop:AdverseOutcome.
-	?ke rdfs:subClassOf aop:KeyEvent.
-	?ao aop:has_inactivated_key_event ?ke.
+	?ao rdfs:subClassOf* aop:AdverseOutcome.
+	?ind_ao a ?ao.
+	?ind_ao aop:has_inactivated_key_event ?ke.
 	?measure_group bao:BAO_0090012 ?ke.
 	?bioassay_results bao:BAO_0000209 ?measure_group.
 	?bioassay_results aop:has_chem_bio_assay_call ?call.
