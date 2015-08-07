@@ -721,6 +721,30 @@
     
 
 
+    <!-- http://aopkb.org/aop_ontology#DiabetesMellitusType2 -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#DiabetesMellitusType2">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#DiseaseAOP"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#DiseaseAOP -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#DiseaseAOP">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#AdverseOutcomePathway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#DiseaseAdverseOutcome -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#DiseaseAdverseOutcome">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#AdverseOutcome"/>
+    </owl:Class>
+    
+
+
     <!-- http://aopkb.org/aop_ontology#Evidence -->
 
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#Evidence"/>
@@ -1074,6 +1098,14 @@
     
 
 
+    <!-- http://aopkb.org/aop_ontology#Steatosis -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#Steatosis">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#LiverToxicityAOP"/>
+    </owl:Class>
+    
+
+
     <!-- http://aopkb.org/aop_ontology#SufficientKeyEvent -->
 
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#SufficientKeyEvent">
@@ -1119,6 +1151,66 @@
     
 
 
+    <!-- http://aopkb.org/aop_ontology#AOP_Steatosis_Via_DHB4 -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#AOP_Steatosis_Via_DHB4">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#Steatosis"/>
+        <rdfs:label>AOP Steatosis Via DHB4</rdfs:label>
+        <has_chemical_mie_relationship rdf:resource="http://aopkb.org/aop_ontology#CMIERelationship_unknown_dhb4"/>
+        <has_key_event_relationship rdf:resource="http://aopkb.org/aop_ontology#relationship_hsd17b4_steatosis"/>
+        <has_adverse_outcome rdf:resource="http://aopkb.org/aop_ontology#steatosis"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#AOP_Steatosis_Via_FXR_and_DHB4 -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#AOP_Steatosis_Via_FXR_and_DHB4">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#Steatosis"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#AOP_Steatosis_Via_IRS1_AKT_GSK3_and_Lipogenesis -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#AOP_Steatosis_Via_IRS1_AKT_GSK3_and_Lipogenesis">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#Steatosis"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#AOP_Steatosis_Via_IRS1_AKT_TSC1_and_Lipogenesis -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#AOP_Steatosis_Via_IRS1_AKT_TSC1_and_Lipogenesis">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#Steatosis"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#AOP_Steatosis_Via_Insulin_AKT_GSK3_and_Lipogenesis -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#AOP_Steatosis_Via_Insulin_AKT_GSK3_and_Lipogenesis">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#Steatosis"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#AOP_Steatosis_Via_Insulin_AKT_TSC1_and_Lipogenesis -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#AOP_Steatosis_Via_Insulin_AKT_TSC1_and_Lipogenesis">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#Steatosis"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#AOP_Steatosis_Via_NRF2_and_DHB4 -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#AOP_Steatosis_Via_NRF2_and_DHB4">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#Steatosis"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://aopkb.org/aop_ontology#BayesNSMR -->
 
     <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#BayesNSMR">
@@ -1156,6 +1248,15 @@
     
 
 
+    <!-- http://aopkb.org/aop_ontology#CMIERelationship_unknown_dhb4 -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#CMIERelationship_unknown_dhb4">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#ChemicalMIERelationship"/>
+        <has_molecular_initiating_event rdf:resource="http://aopkb.org/aop_ontology#MIE_HSD17B4_inactivity"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://aopkb.org/aop_ontology#HSD17B4 -->
 
     <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#HSD17B4">
@@ -1170,6 +1271,16 @@
 
     <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#Hoxb1">
         <rdf:type rdf:resource="http://aopkb.org/aop_ontology#Hoxb1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#MIE_HSD17B4_inactivity -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#MIE_HSD17B4_inactivity">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#MolecularInitiatingEvent"/>
+        <has_inactivated_key_event rdf:resource="http://aopkb.org/aop_ontology#HSD17B4"/>
+        <has_mie_modulation rdf:resource="http://aopkb.org/aop_ontology#activity_deactivation"/>
     </owl:NamedIndividual>
     
 
@@ -1426,6 +1537,17 @@
         <has_upstream_key_event rdf:resource="http://aopkb.org/aop_ontology#Hoxb1"/>
         <has_downstream_key_event_modulation rdf:resource="http://aopkb.org/aop_ontology#neural_tube_defect"/>
         <has_downstream_key_event rdf:resource="http://aopkb.org/aop_ontology#neural_tube_defect"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#relationship_hsd17b4_steatosis -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#relationship_hsd17b4_steatosis">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#KeyEventRelationship"/>
+        <has_upstream_key_event rdf:resource="http://aopkb.org/aop_ontology#HSD17B4"/>
+        <has_downstream_key_event_modulation rdf:resource="http://aopkb.org/aop_ontology#steatosis"/>
+        <has_downstream_key_event rdf:resource="http://aopkb.org/aop_ontology#steatosis"/>
     </owl:NamedIndividual>
     
 
