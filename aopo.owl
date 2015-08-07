@@ -213,18 +213,18 @@
                 <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#ChemBioAssayCall"/>
             </owl:Restriction>
         </rdfs:domain>
-        <rdfs:range>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_confidence"/>
-                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#ConfidenceLevels"/>
-            </owl:Restriction>
-        </rdfs:range>
         <rdfs:domain>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_confidence"/>
                 <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#AdverseOutcome"/>
             </owl:Restriction>
         </rdfs:domain>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_confidence"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#ConfidenceLevels"/>
+            </owl:Restriction>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -562,13 +562,6 @@
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#AdverseOutcomePathway">
         <owl:equivalentClass>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_adverse_outcome"/>
-                <owl:onClass rdf:resource="http://aopkb.org/aop_ontology#AdverseOutcome"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </owl:equivalentClass>
-        <owl:equivalentClass>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_chemical_mie_relationship"/>
                 <owl:onClass rdf:resource="http://aopkb.org/aop_ontology#ChemicalMIERelationship"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
@@ -578,6 +571,13 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_aop_relationship"/>
                 <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#AopRelationship"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_adverse_outcome"/>
+                <owl:onClass rdf:resource="http://aopkb.org/aop_ontology#AdverseOutcome"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf>
@@ -626,14 +626,14 @@
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#ChemBioAssayResults">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&bao;BAO_0000209"/>
-                <owl:someValuesFrom rdf:resource="&bao;BAO_0000040"/>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_chem_bio_assay_call"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#ChemBioAssayCall"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_chem_bio_assay_call"/>
-                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#ChemBioAssayCall"/>
+                <owl:onProperty rdf:resource="&bao;BAO_0000209"/>
+                <owl:someValuesFrom rdf:resource="&bao;BAO_0000040"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -653,6 +653,12 @@
         <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#AopRelationship"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_evidence"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#Evidence"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_chemical_entity"/>
                 <owl:someValuesFrom rdf:resource="&obo;CHEBI_24431"/>
             </owl:Restriction>
@@ -663,12 +669,6 @@
                 <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#MolecularInitiatingEvent"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_evidence"/>
-                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#Evidence"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">This class encodes a relationship between a chemical and a molecular initiating event. It is possible that a given chemical and MIE have more than one relationship. For instance, a selective estrogen receptor modulator (SERM) may activate and deactivate estrogen receptor activity, resulting in more than one relationship.</obo:IAO_0000115>
     </owl:Class>
     
@@ -676,7 +676,9 @@
 
     <!-- http://aopkb.org/aop_ontology#Confidence -->
 
-    <owl:Class rdf:about="http://aopkb.org/aop_ontology#Confidence"/>
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#Confidence">
+        <obo2:Definition>An individual&apos;s level of support for a concept being true or a fact.</obo2:Definition>
+    </owl:Class>
     
 
 
@@ -758,6 +760,15 @@
     
 
 
+    <!-- http://aopkb.org/aop_ontology#High_Confidence -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#High_Confidence">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#Confidence"/>
+        <obo2:Definition>A high level of confidence in the truth or factual nature of a concept. Generally one may think of this as spanning from 80% to 90% certainty. Based on the IPCC Uncertainty Guidance Note and https://www.ipcc.ch/publications_and_data/ar4/wg1/en/ch1s1-6.html</obo2:Definition>
+    </owl:Class>
+    
+
+
     <!-- http://aopkb.org/aop_ontology#Hoxb1 -->
 
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#Hoxb1">
@@ -823,12 +834,6 @@
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#KeyEventRelationship">
         <owl:equivalentClass>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_downstream_key_event_modulation"/>
-                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#Modulation"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
-        <owl:equivalentClass>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_upstream_key_event"/>
                 <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#AopEntity"/>
             </owl:Restriction>
@@ -837,6 +842,12 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_downstream_key_event"/>
                 <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#AopEntity"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_downstream_key_event_modulation"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#Modulation"/>
             </owl:Restriction>
         </owl:equivalentClass>
         <owl:equivalentClass>
@@ -897,10 +908,28 @@
     
 
 
+    <!-- http://aopkb.org/aop_ontology#Low_Confidence -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#Low_Confidence">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#Confidence"/>
+        <obo2:Definition>A low level of confidence in the truth or factual nature of a concept. Generally one may think of this as spanning from 10% to 50% certainty. Based on the IPCC Uncertainty Guidance Note and https://www.ipcc.ch/publications_and_data/ar4/wg1/en/ch1s1-6.html</obo2:Definition>
+    </owl:Class>
+    
+
+
     <!-- http://aopkb.org/aop_ontology#MediumConfidence -->
 
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#MediumConfidence">
         <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#ConfidenceLevels"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#Medium_Confidence -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#Medium_Confidence">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#Confidence"/>
+        <obo2:Definition>A medium level of confidence in the truth or factual nature of a concept. Generally one may think of this as spanning from 50% to 80% certainty. Based on the IPCC Uncertainty Guidance Note and https://www.ipcc.ch/publications_and_data/ar4/wg1/en/ch1s1-6.html</obo2:Definition>
     </owl:Class>
     
 
@@ -924,14 +953,14 @@
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#MolecularInitiatingEvent">
         <owl:equivalentClass>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_key_event"/>
-                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#KeyEvent"/>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_mie_modulation"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#Modulation"/>
             </owl:Restriction>
         </owl:equivalentClass>
         <owl:equivalentClass>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_mie_modulation"/>
-                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#Modulation"/>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_key_event"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#KeyEvent"/>
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#AopEntity"/>
@@ -1057,6 +1086,24 @@
 
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#Unknown">
         <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#Modulation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#Very_High_Confidence -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#Very_High_Confidence">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#Confidence"/>
+        <obo2:Definition>A very high level of confidence in the truth or factual nature of a concept. Generally one may think of this as spanning from 90% to 100% certainty. Based on the IPCC Uncertainty Guidance Note and https://www.ipcc.ch/publications_and_data/ar4/wg1/en/ch1s1-6.html</obo2:Definition>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#Very_Low_Confidence -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#Very_Low_Confidence">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#Confidence"/>
+        <obo2:Definition>A very low level of confidence in the truth or factual nature of a concept. Generally one may think of this as less than 10% certainty. Based on the IPCC Uncertainty Guidance Note and https://www.ipcc.ch/publications_and_data/ar4/wg1/en/ch1s1-6.html</obo2:Definition>
     </owl:Class>
     
 
