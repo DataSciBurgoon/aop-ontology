@@ -1299,6 +1299,46 @@
     
 
 
+    <!-- http://aopkb.org/aop_ontology#ind_high_confidence -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#ind_high_confidence">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#High_Confidence"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#ind_low_confidence -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#ind_low_confidence">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#Low_Confidence"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#ind_medium_confidence -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#ind_medium_confidence">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#Medium_Confidence"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#ind_very_high_confidence -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#ind_very_high_confidence">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#Very_High_Confidence"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#ind_very_low_confidence -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#ind_very_low_confidence">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#Very_Low_Confidence"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://aopkb.org/aop_ontology#leads_to -->
 
     <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#leads_to">
