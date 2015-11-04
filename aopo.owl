@@ -66,6 +66,12 @@
     
 
 
+    <!-- http://www.bioassayontology.org/bao#BAO_0002666 -->
+
+    <owl:AnnotationProperty rdf:about="&bao;BAO_0002666"/>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -210,12 +216,6 @@
         <rdfs:domain>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_confidence"/>
-                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#ChemBioAssayCall"/>
-            </owl:Restriction>
-        </rdfs:domain>
-        <rdfs:domain>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_confidence"/>
                 <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#AdverseOutcome"/>
             </owl:Restriction>
         </rdfs:domain>
@@ -225,6 +225,12 @@
                 <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#ConfidenceLevels"/>
             </owl:Restriction>
         </rdfs:range>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_confidence"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#ChemBioAssayCall"/>
+            </owl:Restriction>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -481,6 +487,14 @@
     
 
 
+    <!-- http://aopkb.org/aop_ontology#AO-DecreasedFecundity -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#AO-DecreasedFecundity">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#ReproductiveAdverseOutcome"/>
+    </owl:Class>
+    
+
+
     <!-- http://aopkb.org/aop_ontology#AO-NeuralTubeDefect -->
 
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#AO-NeuralTubeDefect">
@@ -569,15 +583,15 @@
         </owl:equivalentClass>
         <owl:equivalentClass>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_aop_relationship"/>
-                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#AopRelationship"/>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_adverse_outcome"/>
+                <owl:onClass rdf:resource="http://aopkb.org/aop_ontology#AdverseOutcome"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </owl:equivalentClass>
         <owl:equivalentClass>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_adverse_outcome"/>
-                <owl:onClass rdf:resource="http://aopkb.org/aop_ontology#AdverseOutcome"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_aop_relationship"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#AopRelationship"/>
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf>
@@ -587,6 +601,14 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo2:Definition rdf:datatype="&xsd;string">An Adverse Outcome Pathway (AOP) is a conceptual framework that portrays existing knowledge concerning the linkage between two anchor points - the Molecular Initiating Event (MIE), and an Adverse Outcome (AO), connected by a chain of Key Events (KE) and the relationships between them (KER).</obo2:Definition>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#Akt2 -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#Akt2">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#KeyEvent"/>
     </owl:Class>
     
 
@@ -602,6 +624,14 @@
     <!-- http://aopkb.org/aop_ontology#AopRelationship -->
 
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#AopRelationship"/>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#Aromatase -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#Aromatase">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#KeyEvent"/>
+    </owl:Class>
     
 
 
@@ -626,6 +656,12 @@
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#ChemBioAssayResults">
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_bioassay_call_algorithm"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#BioAssayCallAlgorithm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_chem_bio_assay_call"/>
                 <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#ChemBioAssayCall"/>
             </owl:Restriction>
@@ -634,12 +670,6 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&bao;BAO_0000209"/>
                 <owl:someValuesFrom rdf:resource="&bao;BAO_0000040"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_bioassay_call_algorithm"/>
-                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#BioAssayCallAlgorithm"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">This class represents a hit call (ChemBioAssayCall) from a specific assay result at a specific chemical concentration (measure group) using a specific BioAssayCallAlgorithm. In other words, this is a collection class.</obo:IAO_0000115>
@@ -653,8 +683,8 @@
         <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#AopRelationship"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_evidence"/>
-                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#Evidence"/>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_molecular_initiating_event"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#MolecularInitiatingEvent"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -665,8 +695,8 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_molecular_initiating_event"/>
-                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#MolecularInitiatingEvent"/>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_evidence"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#Evidence"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">This class encodes a relationship between a chemical and a molecular initiating event. It is possible that a given chemical and MIE have more than one relationship. For instance, a selective estrogen receptor modulator (SERM) may activate and deactivate estrogen receptor activity, resulting in more than one relationship.</obo:IAO_0000115>
@@ -694,6 +724,15 @@
 
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#Deactivation">
         <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#Modulation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#DecreasedFecundity -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#DecreasedFecundity">
+        <rdfs:label rdf:datatype="&xsd;string">Decreased Fecundity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#ReproductiveToxicologyAOP"/>
     </owl:Class>
     
 
@@ -745,6 +784,22 @@
     
 
 
+    <!-- http://aopkb.org/aop_ontology#Estradiol -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#Estradiol">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#KeyEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#Estrogen_receptor_alpha -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#Estrogen_receptor_alpha">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#KeyEvent"/>
+    </owl:Class>
+    
+
+
     <!-- http://aopkb.org/aop_ontology#Evidence -->
 
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#Evidence"/>
@@ -763,6 +818,30 @@
 
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#ExpressionDeactivation">
         <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#Deactivation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#FXR -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#FXR">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#KeyEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#Fecundity -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#Fecundity">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#KeyEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#GSK3 -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#GSK3">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#KeyEvent"/>
     </owl:Class>
     
 
@@ -804,6 +883,14 @@
     <!-- http://aopkb.org/aop_ontology#Hoxb1_gene -->
 
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#Hoxb1_gene">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#KeyEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#IRS1 -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#IRS1">
         <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#KeyEvent"/>
     </owl:Class>
     
@@ -858,8 +945,8 @@
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#KeyEventRelationship">
         <owl:equivalentClass>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_upstream_key_event"/>
-                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#AopEntity"/>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_downstream_key_event_modulation"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#Modulation"/>
             </owl:Restriction>
         </owl:equivalentClass>
         <owl:equivalentClass>
@@ -870,8 +957,8 @@
         </owl:equivalentClass>
         <owl:equivalentClass>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_downstream_key_event_modulation"/>
-                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#Modulation"/>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_upstream_key_event"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#AopEntity"/>
             </owl:Restriction>
         </owl:equivalentClass>
         <owl:equivalentClass>
@@ -977,14 +1064,14 @@
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#MolecularInitiatingEvent">
         <owl:equivalentClass>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_mie_modulation"/>
-                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#Modulation"/>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_key_event"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#KeyEvent"/>
             </owl:Restriction>
         </owl:equivalentClass>
         <owl:equivalentClass>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_key_event"/>
-                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#KeyEvent"/>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_mie_modulation"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#Modulation"/>
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#AopEntity"/>
@@ -1005,6 +1092,22 @@
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#NoChangeAssayCall">
         <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#ChemBioAssayCall"/>
         <obo:IAO_0000115>Assay that has no change compared to control.</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#PPAR-alpha -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#PPAR-alpha">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#KeyEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#PPAR-gamma -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#PPAR-gamma">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#KeyEvent"/>
     </owl:Class>
     
 
@@ -1065,6 +1168,30 @@
     
 
 
+    <!-- http://aopkb.org/aop_ontology#ReproductiveAdverseOutcome -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#ReproductiveAdverseOutcome">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#AdverseOutcome"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#ReproductiveToxicologyAOP -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#ReproductiveToxicologyAOP">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#AdverseOutcomePathway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#Rheb1 -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#Rheb1">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#KeyEvent"/>
+    </owl:Class>
+    
+
+
     <!-- http://aopkb.org/aop_ontology#RiskSpecificDose -->
 
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#RiskSpecificDose">
@@ -1114,6 +1241,14 @@
     
 
 
+    <!-- http://aopkb.org/aop_ontology#Tsc1 -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#Tsc1">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#KeyEvent"/>
+    </owl:Class>
+    
+
+
     <!-- http://aopkb.org/aop_ontology#Unknown -->
 
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#Unknown">
@@ -1140,6 +1275,46 @@
     
 
 
+    <!-- http://aopkb.org/aop_ontology#Vitellogenin -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#Vitellogenin">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#KeyEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#mTORC1 -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#mTORC1">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#KeyEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MPATH_0 -->
+
+    <owl:Class rdf:about="&obo;MPATH_0"/>
+    
+
+
+    <!-- http://www.bioassayontology.org/bao#BAO_0000176 -->
+
+    <owl:Class rdf:about="&bao;BAO_0000176"/>
+    
+
+
+    <!-- http://www.bioassayontology.org/bao#BAO_0002792 -->
+
+    <owl:Class rdf:about="&bao;BAO_0002792"/>
+    
+
+
+    <!-- http://www.bioassayontology.org/bao#BAO_0002903 -->
+
+    <owl:Class rdf:about="&bao;BAO_0002903"/>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -1148,6 +1323,47 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#AOP_Decreased_Fecundity_via_Aromatase_Inhibition -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#AOP_Decreased_Fecundity_via_Aromatase_Inhibition">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#DecreasedFecundity"/>
+        <rdfs:label rdf:datatype="&xsd;string">AOP Decreased Fecundity via Aromatase Inhibition</rdfs:label>
+        <has_chemical_mie_relationship rdf:resource="http://aopkb.org/aop_ontology#CMIERelationship_Aromatase_Inhibition"/>
+        <has_adverse_outcome rdf:resource="http://aopkb.org/aop_ontology#DecreasedFecundity"/>
+        <has_key_event_relationship rdf:resource="http://aopkb.org/aop_ontology#relationship_aromatase_estrogen"/>
+        <has_key_event_relationship rdf:resource="http://aopkb.org/aop_ontology#relationship_estradiol_vitellogenin"/>
+        <has_key_event_relationship rdf:resource="http://aopkb.org/aop_ontology#relationship_vitellogenin_fecundity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#AOP_Decreased_Fecundity_via_Estrogen_Receptor-alpha_Inhibition -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#AOP_Decreased_Fecundity_via_Estrogen_Receptor-alpha_Inhibition">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#DecreasedFecundity"/>
+        <rdfs:label rdf:datatype="&xsd;string">AOP Decreased Fecundity via Estrogen Receptor-alpha Antagonism</rdfs:label>
+        <has_chemical_mie_relationship rdf:resource="http://aopkb.org/aop_ontology#CMIERelationship_Estrogen_Receptor-alpha_Inhibition"/>
+        <has_adverse_outcome rdf:resource="http://aopkb.org/aop_ontology#DecreasedFecundity"/>
+        <has_key_event_relationship rdf:resource="http://aopkb.org/aop_ontology#relationship_estrogen_receptor-alpha_vitellogenin"/>
+        <has_key_event_relationship rdf:resource="http://aopkb.org/aop_ontology#relationship_vitellogenin_fecundity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#AOP_Decreased_Fecundity_via_PPAR-gamma_Activation -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#AOP_Decreased_Fecundity_via_PPAR-gamma_Activation">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#DecreasedFecundity"/>
+        <rdfs:label rdf:datatype="&xsd;string">AOP Decreased Fecundity via PPAR-gamma Activation</rdfs:label>
+        <has_chemical_mie_relationship rdf:resource="http://aopkb.org/aop_ontology#CMIERelationship_PPAR-gamma_Activation"/>
+        <has_adverse_outcome rdf:resource="http://aopkb.org/aop_ontology#DecreasedFecundity"/>
+        <has_key_event_relationship rdf:resource="http://aopkb.org/aop_ontology#relationship_aromatase_estrogen"/>
+        <has_key_event_relationship rdf:resource="http://aopkb.org/aop_ontology#relationship_estradiol_fecundity"/>
+        <has_key_event_relationship rdf:resource="http://aopkb.org/aop_ontology#relationship_ppar-gamma_aromatase"/>
+    </owl:NamedIndividual>
     
 
 
@@ -1163,10 +1379,16 @@
     
 
 
-    <!-- http://aopkb.org/aop_ontology#AOP_Steatosis_Via_FXR_and_DHB4 -->
+    <!-- http://aopkb.org/aop_ontology#AOP_Steatosis_Via_FXR_and_HSD17B4 -->
 
-    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#AOP_Steatosis_Via_FXR_and_DHB4">
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#AOP_Steatosis_Via_FXR_and_HSD17B4">
         <rdf:type rdf:resource="http://aopkb.org/aop_ontology#Steatosis"/>
+        <rdfs:label>AOP Steatosis Via FXR and HSD17B4</rdfs:label>
+        <has_chemical_mie_relationship rdf:resource="http://aopkb.org/aop_ontology#CMIERelationship_FXR_Activation"/>
+        <has_key_event_relationship rdf:resource="http://aopkb.org/aop_ontology#relationship_fxr_ppar_activation"/>
+        <has_key_event_relationship rdf:resource="http://aopkb.org/aop_ontology#relationship_hsd17b4_steatosis"/>
+        <has_key_event_relationship rdf:resource="http://aopkb.org/aop_ontology#relationship_ppar_hsd17b4"/>
+        <has_adverse_outcome rdf:resource="http://aopkb.org/aop_ontology#steatosis"/>
     </owl:NamedIndividual>
     
 
@@ -1175,6 +1397,13 @@
 
     <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#AOP_Steatosis_Via_IRS1_AKT_GSK3_and_Lipogenesis">
         <rdf:type rdf:resource="http://aopkb.org/aop_ontology#Steatosis"/>
+        <rdfs:label rdf:datatype="&xsd;string">AOP Steatosis Via IRS1, AKT, GSK3 and Lipogenesis</rdfs:label>
+        <has_chemical_mie_relationship rdf:resource="http://aopkb.org/aop_ontology#CMIERelationship_IRS1_Activation"/>
+        <has_key_event_relationship rdf:resource="http://aopkb.org/aop_ontology#relationship_akt2_gsk3"/>
+        <has_key_event_relationship rdf:resource="http://aopkb.org/aop_ontology#relationship_gsk3_srebp1"/>
+        <has_key_event_relationship rdf:resource="http://aopkb.org/aop_ontology#relationship_irs1_akt2"/>
+        <has_key_event_relationship rdf:resource="http://aopkb.org/aop_ontology#relationship_srebp1_steatosis"/>
+        <has_adverse_outcome rdf:resource="http://aopkb.org/aop_ontology#steatosis"/>
     </owl:NamedIndividual>
     
 
@@ -1183,14 +1412,15 @@
 
     <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#AOP_Steatosis_Via_IRS1_AKT_TSC1_and_Lipogenesis">
         <rdf:type rdf:resource="http://aopkb.org/aop_ontology#Steatosis"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://aopkb.org/aop_ontology#AOP_Steatosis_Via_Insulin_AKT_GSK3_and_Lipogenesis -->
-
-    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#AOP_Steatosis_Via_Insulin_AKT_GSK3_and_Lipogenesis">
-        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#Steatosis"/>
+        <rdfs:label rdf:datatype="&xsd;string">AOP Steatosis Via IRS1, AKT2, TSC1 or TSC2 and Lipogenesis</rdfs:label>
+        <has_chemical_mie_relationship rdf:resource="http://aopkb.org/aop_ontology#CMIERelationship_IRS1_Activation"/>
+        <has_key_event_relationship rdf:resource="http://aopkb.org/aop_ontology#relationship_akt2_tsc1"/>
+        <has_key_event_relationship rdf:resource="http://aopkb.org/aop_ontology#relationship_irs1_akt2"/>
+        <has_key_event_relationship rdf:resource="http://aopkb.org/aop_ontology#relationship_mtorc1_srebp1"/>
+        <has_key_event_relationship rdf:resource="http://aopkb.org/aop_ontology#relationship_rheb1_mtorc1"/>
+        <has_key_event_relationship rdf:resource="http://aopkb.org/aop_ontology#relationship_srebp1_steatosis"/>
+        <has_key_event_relationship rdf:resource="http://aopkb.org/aop_ontology#relationship_tsc1_rheb1"/>
+        <has_adverse_outcome rdf:resource="http://aopkb.org/aop_ontology#steatosis"/>
     </owl:NamedIndividual>
     
 
@@ -1207,6 +1437,22 @@
 
     <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#AOP_Steatosis_Via_NRF2_and_DHB4">
         <rdf:type rdf:resource="http://aopkb.org/aop_ontology#Steatosis"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#Akt2 -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#Akt2">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#Akt2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#Aromatase -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#Aromatase">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#Aromatase"/>
     </owl:NamedIndividual>
     
 
@@ -1248,11 +1494,104 @@
     
 
 
+    <!-- http://aopkb.org/aop_ontology#CMIERelationship_Aromatase_Inhibition -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#CMIERelationship_Aromatase_Inhibition">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#ChemicalMIERelationship"/>
+        <has_molecular_initiating_event rdf:resource="http://aopkb.org/aop_ontology#MIE_Aromatase_Inhibition"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#CMIERelationship_Estrogen_Receptor-alpha_Inhibition -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#CMIERelationship_Estrogen_Receptor-alpha_Inhibition">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#ChemicalMIERelationship"/>
+        <has_molecular_initiating_event rdf:resource="http://aopkb.org/aop_ontology#MIE_Estrogen_receptor_alpha_antagonism"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#CMIERelationship_FXR_Activation -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#CMIERelationship_FXR_Activation">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#ChemicalMIERelationship"/>
+        <has_molecular_initiating_event rdf:resource="http://aopkb.org/aop_ontology#MIE_FXR_Activation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#CMIERelationship_IRS1_Activation -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#CMIERelationship_IRS1_Activation">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#ChemicalMIERelationship"/>
+        <has_molecular_initiating_event rdf:resource="http://aopkb.org/aop_ontology#MIE_IRS1_Activation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#CMIERelationship_PPAR-gamma_Activation -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#CMIERelationship_PPAR-gamma_Activation">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#ChemicalMIERelationship"/>
+        <has_molecular_initiating_event rdf:resource="http://aopkb.org/aop_ontology#MIE_PPAR-gamma_activation"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://aopkb.org/aop_ontology#CMIERelationship_unknown_dhb4 -->
 
     <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#CMIERelationship_unknown_dhb4">
         <rdf:type rdf:resource="http://aopkb.org/aop_ontology#ChemicalMIERelationship"/>
         <has_molecular_initiating_event rdf:resource="http://aopkb.org/aop_ontology#MIE_HSD17B4_inactivity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#DecreasedFecundity -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#DecreasedFecundity">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#AO-DecreasedFecundity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#Estradiol -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#Estradiol">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#Estradiol"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#Estrogen_receptor_alpha -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#Estrogen_receptor_alpha">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#Estrogen_receptor_alpha"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#FXR -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#FXR">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#FXR"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#Fecundity -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#Fecundity">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#Fecundity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#GSK3 -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#GSK3">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#GSK3"/>
     </owl:NamedIndividual>
     
 
@@ -1275,12 +1614,86 @@
     
 
 
+    <!-- http://aopkb.org/aop_ontology#IRS1 -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#IRS1">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#IRS1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#MIE_Aromatase_Inhibition -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#MIE_Aromatase_Inhibition">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#MolecularInitiatingEvent"/>
+        <has_inactivated_key_event rdf:resource="http://aopkb.org/aop_ontology#Aromatase"/>
+        <has_mie_modulation rdf:resource="http://aopkb.org/aop_ontology#activity_deactivation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#MIE_Estrogen_receptor_alpha_antagonism -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#MIE_Estrogen_receptor_alpha_antagonism">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#MolecularInitiatingEvent"/>
+        <has_inactivated_key_event rdf:resource="http://aopkb.org/aop_ontology#Estrogen_receptor_alpha"/>
+        <has_mie_modulation rdf:resource="http://aopkb.org/aop_ontology#activity_deactivation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#MIE_FXR_Activation -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#MIE_FXR_Activation">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#MolecularInitiatingEvent"/>
+        <has_activated_key_event rdf:resource="http://aopkb.org/aop_ontology#FXR"/>
+        <has_mie_modulation rdf:resource="http://aopkb.org/aop_ontology#activity_activation"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://aopkb.org/aop_ontology#MIE_HSD17B4_inactivity -->
 
     <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#MIE_HSD17B4_inactivity">
         <rdf:type rdf:resource="http://aopkb.org/aop_ontology#MolecularInitiatingEvent"/>
         <has_inactivated_key_event rdf:resource="http://aopkb.org/aop_ontology#HSD17B4"/>
         <has_mie_modulation rdf:resource="http://aopkb.org/aop_ontology#activity_deactivation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#MIE_IRS1_Activation -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#MIE_IRS1_Activation">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#MolecularInitiatingEvent"/>
+        <has_activated_key_event rdf:resource="http://aopkb.org/aop_ontology#IRS1"/>
+        <has_mie_modulation rdf:resource="http://aopkb.org/aop_ontology#activity_activation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#MIE_PPAR-gamma_activation -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#MIE_PPAR-gamma_activation">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#MolecularInitiatingEvent"/>
+        <has_activated_key_event rdf:resource="http://aopkb.org/aop_ontology#PPAR-gamma"/>
+        <has_mie_modulation rdf:resource="http://aopkb.org/aop_ontology#activity_activation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#PPAR-alpha -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#PPAR-alpha">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#PPAR-alpha"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#PPAR-gamma -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#PPAR-gamma">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#PPAR-gamma"/>
     </owl:NamedIndividual>
     
 
@@ -1295,10 +1708,34 @@
     
 
 
+    <!-- http://aopkb.org/aop_ontology#Rheb1 -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#Rheb1">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#Rheb1"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://aopkb.org/aop_ontology#SREBP1 -->
 
     <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#SREBP1">
         <rdf:type rdf:resource="http://aopkb.org/aop_ontology#SREBP1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#Tsc1 -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#Tsc1">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#Tsc1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#Vitellogenin -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#Vitellogenin">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#Vitellogenin"/>
     </owl:NamedIndividual>
     
 
@@ -1458,6 +1895,14 @@
     
 
 
+    <!-- http://aopkb.org/aop_ontology#mTORC1 -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#mTORC1">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#mTORC1"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://aopkb.org/aop_ontology#measure_group_bkf_15um -->
 
     <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#measure_group_bkf_15um">
@@ -1483,6 +1928,7 @@
     <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#neural_tube_defect">
         <rdf:type rdf:resource="http://aopkb.org/aop_ontology#AO-NeuralTubeDefect"/>
         <rdf:type rdf:resource="&obo;HP_0045005"/>
+        <rdfs:label>Neural Tube Defect</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1499,6 +1945,7 @@
 
     <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#protein_translation">
         <rdf:type rdf:resource="http://aopkb.org/aop_ontology#ProteinTranslation"/>
+        <has_upstream_key_event rdf:resource="http://aopkb.org/aop_ontology#Akt2"/>
     </owl:NamedIndividual>
     
 
@@ -1515,6 +1962,94 @@
 
     <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#rar_rxr_heterodimer">
         <rdf:type rdf:resource="http://aopkb.org/aop_ontology#RAR_RXR_heterodimer"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#relationship_akt2_gsk3 -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#relationship_akt2_gsk3">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#KeyEventRelationship"/>
+        <has_upstream_key_event rdf:resource="http://aopkb.org/aop_ontology#Akt2"/>
+        <has_downstream_key_event rdf:resource="http://aopkb.org/aop_ontology#GSK3"/>
+        <has_downstream_key_event_modulation rdf:resource="http://aopkb.org/aop_ontology#activity_activation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#relationship_akt2_tsc1 -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#relationship_akt2_tsc1">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#KeyEventRelationship"/>
+        <has_upstream_key_event rdf:resource="http://aopkb.org/aop_ontology#Akt2"/>
+        <has_downstream_key_event rdf:resource="http://aopkb.org/aop_ontology#Tsc1"/>
+        <has_downstream_key_event_modulation rdf:resource="http://aopkb.org/aop_ontology#activity_deactivation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#relationship_aromatase_estrogen -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#relationship_aromatase_estrogen">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#KeyEventRelationship"/>
+        <has_upstream_key_event rdf:resource="http://aopkb.org/aop_ontology#Aromatase"/>
+        <has_downstream_key_event rdf:resource="http://aopkb.org/aop_ontology#Estradiol"/>
+        <has_downstream_key_event_modulation rdf:resource="http://aopkb.org/aop_ontology#activity_activation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#relationship_estradiol_fecundity -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#relationship_estradiol_fecundity">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#KeyEventRelationship"/>
+        <has_upstream_key_event rdf:resource="http://aopkb.org/aop_ontology#Estradiol"/>
+        <has_downstream_key_event rdf:resource="http://aopkb.org/aop_ontology#Fecundity"/>
+        <has_downstream_key_event_modulation rdf:resource="http://aopkb.org/aop_ontology#activity_activation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#relationship_estradiol_vitellogenin -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#relationship_estradiol_vitellogenin">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#KeyEventRelationship"/>
+        <has_upstream_key_event rdf:resource="http://aopkb.org/aop_ontology#Estradiol"/>
+        <has_downstream_key_event rdf:resource="http://aopkb.org/aop_ontology#Vitellogenin"/>
+        <has_downstream_key_event_modulation rdf:resource="http://aopkb.org/aop_ontology#activity_activation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#relationship_estrogen_receptor-alpha_vitellogenin -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#relationship_estrogen_receptor-alpha_vitellogenin">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#KeyEventRelationship"/>
+        <has_upstream_key_event rdf:resource="http://aopkb.org/aop_ontology#Estrogen_receptor_alpha"/>
+        <has_downstream_key_event rdf:resource="http://aopkb.org/aop_ontology#Vitellogenin"/>
+        <has_downstream_key_event_modulation rdf:resource="http://aopkb.org/aop_ontology#activity_activation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#relationship_fxr_ppar_activation -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#relationship_fxr_ppar_activation">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#KeyEventRelationship"/>
+        <has_upstream_key_event rdf:resource="http://aopkb.org/aop_ontology#FXR"/>
+        <has_downstream_key_event rdf:resource="http://aopkb.org/aop_ontology#PPAR-alpha"/>
+        <has_downstream_key_event_modulation rdf:resource="http://aopkb.org/aop_ontology#activity_activation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#relationship_gsk3_srebp1 -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#relationship_gsk3_srebp1">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#KeyEventRelationship"/>
+        <has_upstream_key_event rdf:resource="http://aopkb.org/aop_ontology#GSK3"/>
+        <has_downstream_key_event rdf:resource="http://aopkb.org/aop_ontology#SREBP1"/>
+        <has_downstream_key_event_modulation rdf:resource="http://aopkb.org/aop_ontology#activity_activation"/>
     </owl:NamedIndividual>
     
 
@@ -1552,6 +2087,17 @@
     
 
 
+    <!-- http://aopkb.org/aop_ontology#relationship_irs1_akt2 -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#relationship_irs1_akt2">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#KeyEventRelationship"/>
+        <has_downstream_key_event rdf:resource="http://aopkb.org/aop_ontology#Akt2"/>
+        <has_upstream_key_event rdf:resource="http://aopkb.org/aop_ontology#IRS1"/>
+        <has_downstream_key_event_modulation rdf:resource="http://aopkb.org/aop_ontology#activity_activation"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://aopkb.org/aop_ontology#relationship_mie_rar_rxr_heterodimer -->
 
     <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#relationship_mie_rar_rxr_heterodimer">
@@ -1559,6 +2105,39 @@
         <has_downstream_key_event_modulation rdf:resource="http://aopkb.org/aop_ontology#activity_activation"/>
         <has_upstream_key_event rdf:resource="http://aopkb.org/aop_ontology#rar"/>
         <has_downstream_key_event rdf:resource="http://aopkb.org/aop_ontology#rar_rxr_heterodimer"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#relationship_mtorc1_srebp1 -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#relationship_mtorc1_srebp1">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#KeyEventRelationship"/>
+        <has_downstream_key_event rdf:resource="http://aopkb.org/aop_ontology#SREBP1"/>
+        <has_downstream_key_event_modulation rdf:resource="http://aopkb.org/aop_ontology#activity_activation"/>
+        <has_upstream_key_event rdf:resource="http://aopkb.org/aop_ontology#mTORC1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#relationship_ppar-gamma_aromatase -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#relationship_ppar-gamma_aromatase">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#KeyEventRelationship"/>
+        <has_downstream_key_event rdf:resource="http://aopkb.org/aop_ontology#Aromatase"/>
+        <has_upstream_key_event rdf:resource="http://aopkb.org/aop_ontology#PPAR-gamma"/>
+        <has_downstream_key_event_modulation rdf:resource="http://aopkb.org/aop_ontology#activity_deactivation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#relationship_ppar_hsd17b4 -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#relationship_ppar_hsd17b4">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#KeyEventRelationship"/>
+        <has_downstream_key_event rdf:resource="http://aopkb.org/aop_ontology#HSD17B4"/>
+        <has_upstream_key_event rdf:resource="http://aopkb.org/aop_ontology#PPAR-alpha"/>
+        <has_downstream_key_event_modulation rdf:resource="http://aopkb.org/aop_ontology#expression_activation"/>
     </owl:NamedIndividual>
     
 
@@ -1583,6 +2162,50 @@
     
 
 
+    <!-- http://aopkb.org/aop_ontology#relationship_rheb1_mtorc1 -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#relationship_rheb1_mtorc1">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#KeyEventRelationship"/>
+        <has_upstream_key_event rdf:resource="http://aopkb.org/aop_ontology#Rheb1"/>
+        <has_downstream_key_event_modulation rdf:resource="http://aopkb.org/aop_ontology#activity_activation"/>
+        <has_downstream_key_event rdf:resource="http://aopkb.org/aop_ontology#mTORC1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#relationship_srebp1_steatosis -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#relationship_srebp1_steatosis">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#KeyEventRelationship"/>
+        <has_upstream_key_event rdf:resource="http://aopkb.org/aop_ontology#SREBP1"/>
+        <has_downstream_key_event_modulation rdf:resource="http://aopkb.org/aop_ontology#steatosis"/>
+        <has_downstream_key_event rdf:resource="http://aopkb.org/aop_ontology#steatosis"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#relationship_tsc1_rheb1 -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#relationship_tsc1_rheb1">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#KeyEventRelationship"/>
+        <has_downstream_key_event rdf:resource="http://aopkb.org/aop_ontology#Rheb1"/>
+        <has_upstream_key_event rdf:resource="http://aopkb.org/aop_ontology#Tsc1"/>
+        <has_downstream_key_event_modulation rdf:resource="http://aopkb.org/aop_ontology#activity_deactivation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#relationship_vitellogenin_fecundity -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#relationship_vitellogenin_fecundity">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#KeyEventRelationship"/>
+        <has_downstream_key_event rdf:resource="http://aopkb.org/aop_ontology#Fecundity"/>
+        <has_upstream_key_event rdf:resource="http://aopkb.org/aop_ontology#Vitellogenin"/>
+        <has_downstream_key_event_modulation rdf:resource="http://aopkb.org/aop_ontology#activity_activation"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://aopkb.org/aop_ontology#rxr -->
 
     <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#rxr">
@@ -1596,6 +2219,7 @@
     <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#steatosis">
         <rdf:type rdf:resource="http://aopkb.org/aop_ontology#AO-Steatosis"/>
         <rdf:type rdf:resource="&obo;MPATH_622"/>
+        <rdfs:label>Steatosis</rdfs:label>
         <has_inactivated_key_event rdf:resource="http://aopkb.org/aop_ontology#HSD17B4"/>
     </owl:NamedIndividual>
     <rdf:Description>
