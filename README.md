@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/18586/DataSciBurgoon/aop-ontology.svg)](https://zenodo.org/badge/latestdoi/18586/DataSciBurgoon/aop-ontology)
+
 # aop-ontology
 Ontology to manage adverse outcome pathways and associated data for predictive toxicology
 
