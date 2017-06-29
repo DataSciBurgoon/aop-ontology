@@ -126,6 +126,16 @@
     
 
 
+    <!-- http://aopkb.org/aop_ontology#has_aop_context -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#has_aop_context">
+        <rdfs:domain rdf:resource="http://aopkb.org/aop_ontology#AdverseOutcome"/>
+        <rdfs:domain rdf:resource="http://aopkb.org/aop_ontology#KeyEvent"/>
+        <rdfs:range rdf:resource="http://aopkb.org/aop_ontology#AopContext"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://aopkb.org/aop_ontology#has_aop_relationship -->
 
     <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#has_aop_relationship"/>
@@ -464,6 +474,15 @@
     
 
 
+    <!-- http://aopkb.org/aop_ontology#is_key_event_component_of -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#is_key_event_component_of">
+        <rdfs:domain rdf:resource="http://aopkb.org/aop_ontology#KeyEventComponent"/>
+        <rdfs:range rdf:resource="http://aopkb.org/aop_ontology#KeyEvent"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://aopkb.org/aop_ontology#is_molecular_initiating_event -->
 
     <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#is_molecular_initiating_event"/>
@@ -613,6 +632,14 @@
     
 
 
+    <!-- http://aopkb.org/aop_ontology#AopContext -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#AopContext">
+        <obo2:Definition>The context for an AopEntity. Typically these are cell types, organs, life stages, etc.</obo2:Definition>
+    </owl:Class>
+    
+
+
     <!-- http://aopkb.org/aop_ontology#AopEntity -->
 
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#AopEntity">
@@ -639,6 +666,22 @@
 
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#BioAssayCallAlgorithm">
         <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This is the algorithm that is used to make a &quot;hit&quot; call from a bioassay. Generally, there is some type of decision rule that is used by an algorithm to make this call.</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#CellTypeContext -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#CellTypeContext">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#AopContext"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#CellularOrganelleContext -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#CellularOrganelleContext">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#AopContext"/>
     </owl:Class>
     
 
@@ -922,8 +965,30 @@
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#KeyEvent">
         <owl:equivalentClass>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_aop_context"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#AopContext"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_key_event_type"/>
                 <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#KeyEventType"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#AopEntity"/>
+        <owl:disjointWith rdf:resource="http://aopkb.org/aop_ontology#KeyEventComponent"/>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A necessary event that must occur for an adverse outcome to develop or be triggered.</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#KeyEventComponent -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#KeyEventComponent">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_aop_context"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#AopContext"/>
             </owl:Restriction>
         </owl:equivalentClass>
         <owl:equivalentClass>
@@ -932,8 +997,14 @@
                 <owl:someValuesFrom rdf:resource="http://www.bioassayontology.org/bao#BAO_0003111"/>
             </owl:Restriction>
         </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#is_key_event_component_of"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#KeyEvent"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#AopEntity"/>
-        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A necessary event that must occur for an adverse outcome to develop or be triggered.</obo:IAO_0000115>
+        <obo2:Definition>Key Event Components are measurable biological entities that make up a Key Event. They likely represent either different sequential steps of the Key Event (e.g., the different steps of fatty acid beta oxidation), or they represent parallel steps that all contribute to the Key Event.</obo2:Definition>
     </owl:Class>
     
 
@@ -995,6 +1066,14 @@
 
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#LeadsTo">
         <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#Modulation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#LifeStageContext -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#LifeStageContext">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#AopContext"/>
     </owl:Class>
     
 
@@ -1096,6 +1175,14 @@
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#NoChangeAssayCall">
         <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#ChemBioAssayCall"/>
         <obo:IAO_0000115>Assay that has no change compared to control.</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#OrganContext -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#OrganContext">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#AopContext"/>
     </owl:Class>
     
 
@@ -1244,6 +1331,14 @@
     
 
 
+    <!-- http://aopkb.org/aop_ontology#TissueContext -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#TissueContext">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#AopContext"/>
+    </owl:Class>
+    
+
+
     <!-- http://aopkb.org/aop_ontology#Tsc1 -->
 
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#Tsc1">
@@ -1256,6 +1351,7 @@
 
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#Unknown">
         <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#Modulation"/>
+        <obo2:Definition></obo2:Definition>
     </owl:Class>
     
 
@@ -1763,6 +1859,15 @@
 
     <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#antagonism_HSD17B4_unknown_mechanism">
         <rdf:type rdf:resource="http://www.bioassayontology.org/bao#BAO_0002903"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#ao-test -->
+
+    <owl:NamedIndividual rdf:about="http://aopkb.org/aop_ontology#ao-test">
+        <rdf:type rdf:resource="http://aopkb.org/aop_ontology#AdverseOutcome"/>
+        <has_inactivated_key_event rdf:resource="http://aopkb.org/aop_ontology#HSD17B4"/>
     </owl:NamedIndividual>
     
 
