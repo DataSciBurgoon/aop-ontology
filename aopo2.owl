@@ -75,6 +75,12 @@
     
 
 
+    <!-- http://aopkb.org/aop_ontology#has_activated_bioassay -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#has_activated_bioassay"/>
+    
+
+
     <!-- http://aopkb.org/aop_ontology#has_activated_key_event -->
 
     <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#has_activated_key_event">
@@ -136,6 +142,18 @@
     
 
 
+    <!-- http://aopkb.org/aop_ontology#has_aop_entity -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#has_aop_entity"/>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#has_aop_entity_modulation -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#has_aop_entity_modulation"/>
+    
+
+
     <!-- http://aopkb.org/aop_ontology#has_aop_relationship -->
 
     <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#has_aop_relationship"/>
@@ -170,6 +188,12 @@
     <!-- http://aopkb.org/aop_ontology#has_bioassay_call_algorithm -->
 
     <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#has_bioassay_call_algorithm"/>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#has_bioassay_modulation -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#has_bioassay_modulation"/>
     
 
 
@@ -535,10 +559,29 @@
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#ActivatedAssayCall">
         <owl:equivalentClass>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_activated_key_event"/>
-                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#KeyEvent"/>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_aop_entity"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#AopEntity"/>
             </owl:Restriction>
         </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_aop_entity_modulation"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#Modulation"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_bioassay"/>
+                <owl:someValuesFrom rdf:resource="http://www.bioassayontology.org/bao#BAO_0000015"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_bioassay_modulation"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#Activation"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#BioAssayAOPRelationship"/>
         <obo:IAO_0000115>Assay that is activated at a given exposure concentration/dose.</obo:IAO_0000115>
     </owl:Class>
     
@@ -649,6 +692,12 @@
     
 
 
+    <!-- http://aopkb.org/aop_ontology#BioAssayAOPRelationship -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#BioAssayAOPRelationship"/>
+    
+
+
     <!-- http://aopkb.org/aop_ontology#BioAssayCallAlgorithm -->
 
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#BioAssayCallAlgorithm">
@@ -740,6 +789,22 @@
 
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#Deactivation">
         <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#Modulation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#Decrease -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#Decrease">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#Modulation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#DecreasedAssayCall -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#DecreasedAssayCall">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#BioAssayAOPRelationship"/>
     </owl:Class>
     
 
@@ -915,11 +980,46 @@
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#InactivatedAssayCall">
         <owl:equivalentClass>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_inactivated_key_event"/>
-                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#KeyEvent"/>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_aop_entity"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#AopEntity"/>
             </owl:Restriction>
         </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_aop_entity_modulation"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#Modulation"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_bioassay"/>
+                <owl:someValuesFrom rdf:resource="http://www.bioassayontology.org/bao#BAO_0000015"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_bioassay_modulation"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#Deactivation"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#BioAssayAOPRelationship"/>
         <obo:IAO_0000115>Assay that is inactivated at a given concentration/dose</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#Increase -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#Increase">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#Modulation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#IncreasedAssayCall -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#IncreasedAssayCall">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#BioAssayAOPRelationship"/>
     </owl:Class>
     
 
@@ -1145,6 +1245,7 @@
     <!-- http://aopkb.org/aop_ontology#NoChangeAssayCall -->
 
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#NoChangeAssayCall">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#BioAssayAOPRelationship"/>
         <obo:IAO_0000115>Assay that has no change compared to control.</obo:IAO_0000115>
     </owl:Class>
     
@@ -1323,6 +1424,14 @@
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#Unknown">
         <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#Modulation"/>
         <obo2:Definition></obo2:Definition>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#UterineWeightIncreased -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#UterineWeightIncreased">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#ActivatedAssayCall"/>
     </owl:Class>
     
 
