@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"/>
+    <uri id="Imports Wizard Entry" name="http://purl.obolibrary.org/obo/behavior/2015-10-24/behavior.owl" uri="http://purl.obolibrary.org/obo/nbo.owl"/>
     <uri id="Imports Wizard Entry" name="http://purl.obolibrary.org/obo/mi/releases/2017-08-16/mi.owl" uri="http://purl.obolibrary.org/obo/mi.owl"/>
     <uri id="Imports Wizard Entry" name="http://purl.obolibrary.org/obo/pco/releases/2016-12-14/pco.owl" uri="http://purl.obolibrary.org/obo/pco.owl"/>
     <uri id="Imports Wizard Entry" name="http://purl.obolibrary.org/obo/mp/releases/2017-07-26/mp.owl" uri="http://purl.obolibrary.org/obo/mp.owl"/>
@@ -9,10 +10,9 @@
     <uri id="Imports Wizard Entry" name="http://www.bioassayontology.org/bao/bao_core.owl" uri="bao_complete.owl"/>
     <uri id="Imports Wizard Entry" name="http://www.bioassayontology.org/bao/bao_complete.owl" uri="bao_complete.owl"/>
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1502984609792" name="ftp://ftp.ebi.ac.uk/pub/databases/chebi/ontology/chebi.owl" uri="chebi.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1502984609792" name="http://aopkb.org/aop_ontology" uri="aopo.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1502984609792" name="http://purl.obolibrary.org/obo/TEMP" uri="vt.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1502984609792" name="http://purl.obolibrary.org/obo/hp.owl" uri="hp.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1502984609792" name="http://www.bioassayontology.org/bao/bao_core_axiom.owl" uri="bao_complete.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1503415593895" name="ftp://ftp.ebi.ac.uk/pub/databases/chebi/ontology/chebi.owl" uri="chebi.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1503415593895" name="http://aopkb.org/aop_ontology" uri="aopo.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1503415593895" name="http://purl.obolibrary.org/obo/hp.owl" uri="hp.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1503415593895" name="http://www.bioassayontology.org/bao/bao_core_axiom.owl" uri="bao_complete.owl"/>
     </group>
 </catalog>

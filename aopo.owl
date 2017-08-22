@@ -28,6 +28,7 @@
         <owl:imports rdf:resource="http://purl.obolibrary.org/obo/hp.owl"/>
         <owl:imports rdf:resource="http://purl.obolibrary.org/obo/pco/releases/2016-12-14/pco.owl"/>
         <owl:imports rdf:resource="http://www.bioassayontology.org/bao/bao_core.owl"/>
+        <owl:imports rdf:resource="http://purl.obolibrary.org/obo/behavior/2015-10-24/behavior.owl"/>
         <owl:imports rdf:resource="http://purl.obolibrary.org/obo/mp/releases/2017-07-26/mp.owl"/>
         <owl:imports rdf:resource="http://purl.obolibrary.org/obo/mi/releases/2017-08-16/mi.owl"/>
         <owl:imports rdf:resource="http://purl.obolibrary.org/obo/cl/releases/2017-07-29/cl.owl"/>
@@ -1378,9 +1379,21 @@
     
 
 
+    <!-- http://purl.obolibrary.org/obo/HP_0045005 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/HP_0045005"/>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/MPATH_0 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MPATH_0"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MPATH_622 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MPATH_622"/>
     
 
 
@@ -1389,6 +1402,12 @@
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MP_0002229">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UPHENO_0001001"/>
     </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UPHENO_0001001 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/UPHENO_0001001"/>
     
 
 
