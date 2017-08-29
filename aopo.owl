@@ -485,6 +485,12 @@
     
 
 
+    <!-- http://aopkb.org/aop_ontology#is_level_of_biological_organization_of -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#is_level_of_biological_organization_of"/>
+    
+
+
     <!-- http://aopkb.org/aop_ontology#is_molecular_initiating_event -->
 
     <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#is_molecular_initiating_event"/>
@@ -540,6 +546,14 @@
                 <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/MPATH_622"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#ActionComponent -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#ActionComponent">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#KeyEventComponent"/>
     </owl:Class>
     
 
@@ -685,6 +699,14 @@
 
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#CellularOrganelleContext">
         <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#AopContext"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#CellularOrganization -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#CellularOrganization">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#LevelOfBiologicalOrganization"/>
     </owl:Class>
     
 
@@ -940,6 +962,14 @@
     
 
 
+    <!-- http://aopkb.org/aop_ontology#IndividualOrganization -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#IndividualOrganization">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#LevelOfBiologicalOrganization"/>
+    </owl:Class>
+    
+
+
     <!-- http://aopkb.org/aop_ontology#IntermediateEvent -->
 
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#IntermediateEvent">
@@ -1059,6 +1089,19 @@
     
 
 
+    <!-- http://aopkb.org/aop_ontology#LevelOfBiologicalOrganization -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#LevelOfBiologicalOrganization">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#is_level_of_biological_organization_of"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#KeyEvent"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
     <!-- http://aopkb.org/aop_ontology#LifeStageContext -->
 
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#LifeStageContext">
@@ -1152,6 +1195,14 @@
     
 
 
+    <!-- http://aopkb.org/aop_ontology#MolecularOrganization -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#MolecularOrganization">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#LevelOfBiologicalOrganization"/>
+    </owl:Class>
+    
+
+
     <!-- http://aopkb.org/aop_ontology#NeuralTubeDefect -->
 
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#NeuralTubeDefect">
@@ -1168,10 +1219,26 @@
     
 
 
+    <!-- http://aopkb.org/aop_ontology#ObjectComponent -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#ObjectComponent">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#KeyEventComponent"/>
+    </owl:Class>
+    
+
+
     <!-- http://aopkb.org/aop_ontology#OrganContext -->
 
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#OrganContext">
         <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#AopContext"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#OrganOrganization -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#OrganOrganization">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#LevelOfBiologicalOrganization"/>
     </owl:Class>
     
 
@@ -1196,6 +1263,22 @@
 
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#PointOfDeparture">
         <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#QuantitativeMeasures"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#PopulationOrganization -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#PopulationOrganization">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#LevelOfBiologicalOrganization"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#ProcessComponent -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#ProcessComponent">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#KeyEventComponent"/>
     </owl:Class>
     
 
@@ -1304,6 +1387,22 @@
     
 
 
+    <!-- http://aopkb.org/aop_ontology#SexContext -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#SexContext">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#AopContext"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#SpeciesContext -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#SpeciesContext">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#AopContext"/>
+    </owl:Class>
+    
+
+
     <!-- http://aopkb.org/aop_ontology#Steatosis -->
 
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#Steatosis">
@@ -1324,6 +1423,14 @@
 
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#TissueContext">
         <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#AopContext"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#TissueOrganization -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#TissueOrganization">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#LevelOfBiologicalOrganization"/>
     </owl:Class>
     
 
