@@ -476,6 +476,12 @@
     
 
 
+    <!-- http://aopkb.org/aop_ontology#is_biological_descriptor_of -->
+
+    <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#is_biological_descriptor_of"/>
+    
+
+
     <!-- http://aopkb.org/aop_ontology#is_biological_macromolecule -->
 
     <owl:ObjectProperty rdf:about="http://aopkb.org/aop_ontology#is_biological_macromolecule"/>
@@ -558,14 +564,6 @@
                 <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/MPATH_622"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://aopkb.org/aop_ontology#ActionComponent -->
-
-    <owl:Class rdf:about="http://aopkb.org/aop_ontology#ActionComponent">
-        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#KeyEventComponent"/>
     </owl:Class>
     
 
@@ -694,6 +692,43 @@
 
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#BioAssayCallAlgorithm">
         <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This is the algorithm that is used to make a &quot;hit&quot; call from a bioassay. Generally, there is some type of decision rule that is used by an algorithm to make this call.</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#BiologicalAction -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#BiologicalAction">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#BiologicalEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#BiologicalEntity -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#BiologicalEntity">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#is_biological_descriptor_of"/>
+                <owl:someValuesFrom rdf:resource="http://aopkb.org/aop_ontology#KeyEvent"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#BiologicalObject -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#BiologicalObject">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#BiologicalEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aopkb.org/aop_ontology#BiologicalProcess -->
+
+    <owl:Class rdf:about="http://aopkb.org/aop_ontology#BiologicalProcess">
+        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#BiologicalEntity"/>
     </owl:Class>
     
 
@@ -1244,14 +1279,6 @@
     
 
 
-    <!-- http://aopkb.org/aop_ontology#ObjectComponent -->
-
-    <owl:Class rdf:about="http://aopkb.org/aop_ontology#ObjectComponent">
-        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#KeyEventComponent"/>
-    </owl:Class>
-    
-
-
     <!-- http://aopkb.org/aop_ontology#OrganContext -->
 
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#OrganContext">
@@ -1296,14 +1323,6 @@
 
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#PopulationOrganization">
         <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#LevelOfBiologicalOrganization"/>
-    </owl:Class>
-    
-
-
-    <!-- http://aopkb.org/aop_ontology#ProcessComponent -->
-
-    <owl:Class rdf:about="http://aopkb.org/aop_ontology#ProcessComponent">
-        <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#KeyEventComponent"/>
     </owl:Class>
     
 
