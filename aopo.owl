@@ -571,6 +571,7 @@
     <!-- http://aopkb.org/aop_ontology#AdverseOutcome -->
 
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#AdverseOutcome">
+        <rdfs:label>Adverse Outcome</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#AopEntity"/>
         <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Any undesired and harmful effect or outcome.</obo:IAO_0000115>
     </owl:Class>
@@ -580,6 +581,7 @@
     <!-- http://aopkb.org/aop_ontology#AdverseOutcomePathway -->
 
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#AdverseOutcomePathway">
+        <rdfs:label>Adverse Outcome Pathway</rdfs:label>
         <owl:equivalentClass>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_aop_relationship"/>
@@ -935,6 +937,7 @@
     <!-- http://aopkb.org/aop_ontology#KeyEvent -->
 
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#KeyEvent">
+        <rdfs:label>Key Event</rdfs:label>
         <owl:equivalentClass>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://aopkb.org/aop_ontology#has_aop_context"/>
@@ -1109,6 +1112,7 @@
     <!-- http://aopkb.org/aop_ontology#MolecularInitatingEvent -->
 
     <owl:Class rdf:about="http://aopkb.org/aop_ontology#MolecularInitatingEvent">
+        <rdfs:label>Molecular Initiating Event</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://aopkb.org/aop_ontology#KeyEventType"/>
     </owl:Class>
     
