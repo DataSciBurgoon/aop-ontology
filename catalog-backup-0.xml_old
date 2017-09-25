@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="Imports Wizard Entry" name="http://purl.obolibrary.org/obo/hp/releases/2015-04-20/hp.owl" uri="hp.owl"/>
+    <uri id="Imports Wizard Entry" name="http://purl.obolibrary.org/obo/hp/releases/2015-04-20/hp.owl" uri="http://purl.obolibrary.org/obo/hp.owl"/>
+    <uri id="Imports Wizard Entry" name="http://www.bioassayontology.org/bao/bao_core.owl" uri="bao_complete.owl"/>
+    <uri id="Imports Wizard Entry" name="http://www.bioassayontology.org/bao/bao_complete.owl" uri="bao_complete.owl"/>
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+<<<<<<< HEAD
+        <uri id="Automatically generated entry, Timestamp=1506367439329" name="ftp://ftp.ebi.ac.uk/pub/databases/chebi/ontology/chebi.owl" uri="chebi.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1506367439329" name="http://aopkb.org/aop_ontology" uri="aopo.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1506367439329" name="http://purl.obolibrary.org/obo/hp.owl" uri="hp.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1506367439329" name="http://www.bioassayontology.org/bao/bao_core_axiom.owl" uri="bao_complete.owl"/>
+=======
+        <uri id="Automatically generated entry, Timestamp=1503193894451" name="ftp://ftp.ebi.ac.uk/pub/databases/chebi/ontology/chebi.owl" uri="chebi.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1503193894451" name="duplicate:http://aopkb.org/aop_ontology" uri="aopo.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1503193894451" name="duplicate:http://aopkb.org/aop_ontology" uri="aopo2.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1503193894451" name="http://purl.obolibrary.org/obo/hp.owl" uri="hp.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1503193894451" name="http://www.bioassayontology.org/bao/bao_core_axiom.owl" uri="bao_complete.owl"/>
+>>>>>>> 4c612d9ae4253a63cd3eaffb4ecbb2f233054a65
+    </group>
+</catalog>
