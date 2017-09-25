@@ -17,7 +17,7 @@
      xmlns:dc="http://purl.org/dc/elements/1.1/">
     <owl:Ontology rdf:about="http://aopkb.org/aop_ontology">
         <owl:imports rdf:resource="ftp://ftp.ebi.ac.uk/pub/databases/chebi/ontology/chebi.owl"/>
-        <owl:imports rdf:resource="http://purl.obolibrary.org/obo/hp/releases/2015-04-20/hp.owl"/>
+        <owl:imports rdf:resource="https://raw.githubusercontent.com/obophenotype/human-phenotype-ontology/master/hp.owl"/>
         <owl:imports rdf:resource="http://www.bioassayontology.org/bao/bao_core.owl"/>
     </owl:Ontology>
     
