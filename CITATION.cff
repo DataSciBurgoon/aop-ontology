@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: Please cite the following works when using this software.
+type: software
+authors:
+  - family-names: Burgoon
+    given-names: Lyle D.
+doi: 10.1089/AIVT.2017.0012
+identifiers:
+  - type: doi
+    value: 10.1089/AIVT.2017.0012
+  - type: other
+    value: urn:issn:2332-1512
+keywords:
+  - adverse outcome pathway
+  - ontology
+title: >-
+  The AOPOntology: A Semantic Artificial Intelligence Tool for Predictive
+  Toxicology
